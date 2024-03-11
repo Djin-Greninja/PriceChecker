@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/back_btn"
+        android:layout_width="52dp"
+        android:layout_height="49dp"
+        android:background="@drawable/back_btn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.031" />
+
+    <ImageView
+        android:id="@+id/login_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.183"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/login"
+        android:layout_width="332dp"
+        android:layout_height="87dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/dm_sans"
+        android:gravity="center"
+        android:letterSpacing=".03"
+        android:text="@string/login_tag"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textFontWeight="900"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_logo" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="329dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:letterSpacing="0.05"
+        android:text="@string/login_extra"
+        android:textColor="#979899"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/login"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="@+id/login"
+        app:layout_constraintTop_toBottomOf="@+id/login" />
+
+
+    <EditText
+        android:id="@+id/editTextPhone"
+        android:layout_width="194dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/number_container"
+        android:gravity="center|start"
+        android:hint="(000) 000-0000"
+        android:inputType="phone"
+        android:letterSpacing=".05"
+        android:maxLength="9"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/textView4"
+        app:layout_constraintHorizontal_bias="0.868"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="78dp"
+        android:layout_height="61dp"
+        android:fontFamily="@font/dm_sans"
+        android:gravity="center"
+        android:letterSpacing=".05"
+        android:text="+63 |"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextPhone"
+        app:layout_constraintEnd_toStartOf="@+id/editTextPhone"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/continue_btn"
+        android:layout_width="337dp"
+        android:layout_height="74dp"
+        android:backgroundTint="#23AA49"
+        android:fontFamily="@font/dm_sans"
+        android:letterSpacing=".05"
+        android:text="Continue"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintVertical_bias="0.103" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="317dp"
+        android:layout_height="71dp"
+        android:gravity="center"
+        android:text="@string/clickable_string"
+        android:textColor="#979899"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/continue_btn"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toStartOf="@+id/continue_btn"
+        app:layout_constraintTop_toBottomOf="@+id/continue_btn"
+        app:layout_constraintVertical_bias="0.069" />
+</androidx.constraintlayout.widget.ConstraintLayout>

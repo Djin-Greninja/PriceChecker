@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">PriceChecker</string>
+    <string name="introline">Create a shopping basket &amp; see the best price for all of your items at nearby store</string>
+    <string name="login_tag">Enter your mobile number</string>
+    <string name="login_extra">We will send you a verification code</string>
+    <string name="clickable_string">By clicking on `&quot;`Continue`&quot;` you are agreeing to our <a href= "https://google.com">terms of use</a>.</string>
+</resources>
