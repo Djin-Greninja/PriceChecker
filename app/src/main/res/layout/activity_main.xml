@@ -45,7 +45,7 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="3dp"
         android:fontFamily="@font/dm_sans"
-        android:text="Good Morning"
+        android:text="Good Morning!"
         android:textColor="#979899"
         app:layout_constraintBottom_toBottomOf="@+id/pofile_logo"
         app:layout_constraintStart_toEndOf="@+id/pofile_logo"
@@ -55,23 +55,23 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="127dp"
+        android:layout_width="140dp"
         android:layout_height="49dp"
         android:layout_marginStart="60dp"
         android:backgroundTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="@+id/pofile_logo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.448"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/greetins"
         app:layout_constraintTop_toTopOf="@+id/pofile_logo"
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="14dp"
         android:text="Location"
         android:textColor="#06161C"
         android:textSize="14sp"
@@ -107,8 +107,8 @@
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager1"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_width="410dp"
+        android:layout_height="182dp"
         android:layout_marginTop="160dp"
         android:clipToPadding="false"
         android:overScrollMode="never"
@@ -119,7 +119,151 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/categories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/dm_sans"
+        android:text="Categories"
+        android:textColor="#06161C"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/searchBar"
+        app:layout_constraintTop_toBottomOf="@+id/viewPager1" />
+
+    <TextView
+        android:id="@+id/see_all1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="188dp"
+        android:fontFamily="@font/dm_sans"
+        android:text="See All"
+        android:textColor="#23AA49"
+        android:textFontWeight="1000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/button2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/mostViewed"
+        app:layout_constraintTop_toBottomOf="@+id/viewPager1" />
+
+    <TextView
+        android:id="@+id/mostViewed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="188dp"
+        android:fontFamily="@font/dm_sans"
+        android:text="Most Viewed"
+        android:textColor="#06161C"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/searchBar"
+        app:layout_constraintTop_toBottomOf="@+id/viewPager1" />
+
+    <TextView
+        android:id="@+id/see_all1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/dm_sans"
+        android:text="See All"
+        android:textColor="#23AA49"
+        android:textFontWeight="1000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/button2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/see_all1"
+        app:layout_constraintTop_toBottomOf="@+id/viewPager1" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/searchBar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.517"
+        app:srcCompat="@drawable/c_meat" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/searchBar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.516"
+        app:srcCompat="@drawable/c_fruit" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView7"
+        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintStart_toEndOf="@+id/imageView5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.517"
+        app:srcCompat="@drawable/c_vegie" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView8"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.517"
+        app:srcCompat="@drawable/c_dairy" />
+
+    <TextView
+        android:id="@+id/Fruits"
+        android:paddingTop="7dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/dm_sans"
+        android:text="Fruits"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView5"
+        app:layout_constraintStart_toStartOf="@+id/imageView5"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+    <TextView
+        android:id="@+id/Vegetables"
+        android:paddingTop="7dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vegetables"
+        app:layout_constraintEnd_toEndOf="@+id/imageView6"
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+    <TextView
+        android:id="@+id/Dairy"
+        android:paddingTop="7dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dairy"
+        app:layout_constraintEnd_toEndOf="@+id/imageView7"
+        app:layout_constraintStart_toStartOf="@+id/imageView7"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
+    <TextView
+        android:id="@+id/Meat"
+        android:paddingTop="7dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Meat"
+        app:layout_constraintEnd_toEndOf="@+id/imageView8"
+        app:layout_constraintStart_toStartOf="@+id/imageView8"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8" /><![CDATA[
+
     />
 
 
+]]>
 </androidx.constraintlayout.widget.ConstraintLayout>

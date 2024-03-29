@@ -1,79 +1,66 @@
 package com.example.pricechecker;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SearchView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
-
 
 public class MainActivity extends AppCompatActivity {
 
-    private ViewPager viewPager;
-    private int currentPage = 0;
-    private Timer timer;
-    private final long DELAY_MS = 500; // Delay in milliseconds before task is to be executed
-    private final long PERIOD_MS = 3000; // Time in milliseconds between successive task executions
     Button location;
     SearchView sV;
+    ViewPager viewPager;
+    private final long DELAY_MS = 500; // Delay in milliseconds before task is to be executed
+    private final long PERIOD_MS = 6000; // Time in milliseconds between successive task executions
+    private Handler handler = new Handler();
+    private Runnable runnable;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         location = findViewById(R.id.button2);
-        sV= findViewById(R.id.searchBar);
+        sV = findViewById(R.id.searchBar);
         viewPager = findViewById(R.id.viewPager1);
 
-        PagerAdapter adapter = new PagerAdapter() {
-            @Override
-            public int getCount() {
-                return 0;
-            }
+        List<String> data = new ArrayList<>();
+        data.add("Item 1");
+        data.add("Item 2");
+        data.add("Item 3");
 
-            @Override
-            public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-                return false;
-            }
-        };
+        HorizontalPagerAdapter adapter = new HorizontalPagerAdapter(this, data);
         viewPager.setAdapter(adapter);
 
-        // Auto scroll the ViewPager
-        autoScrollViewPager();
+        // Start auto-scrolling
+        startAutoScroll();
     }
 
-    private void autoScrollViewPager() {
-        final Runnable update = new Runnable() {
+    private void startAutoScroll() {
+        runnable = new Runnable() {
             @Override
             public void run() {
-                if (currentPage == Integer.MAX_VALUE) {
-                    currentPage = 0;
-                }
-                viewPager.setCurrentItem(currentPage++, true);
+                int currentItem = viewPager.getCurrentItem();
+                int totalItems = viewPager.getAdapter().getCount();
+                int nextItem = (currentItem + 1) % totalItems; // Calculate the next item index
+                viewPager.setCurrentItem(nextItem, true); // Set the current item with smooth scrolling
+                handler.postDelayed(this, PERIOD_MS);
             }
         };
 
-        timer = new Timer(); // This will create a new Thread
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                runOnUiThread(update);
-            }
-        }, DELAY_MS, PERIOD_MS);
+        handler.postDelayed(runnable, DELAY_MS);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (timer != null) {
-            timer.cancel();
-        }
+        // Stop auto-scrolling when the activity is destroyed to avoid memory leaks
+        handler.removeCallbacks(runnable);
     }
 }
+
