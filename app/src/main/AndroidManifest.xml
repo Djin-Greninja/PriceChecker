@@ -13,12 +13,6 @@
         android:theme="@style/Theme.PriceChecker"
         tools:targetApi="31">
         <activity
-            android:name=".LnadingPageHome"
-            android:exported="false" />
-        <activity
-            android:name=".LandingPage_Home"
-            android:exported="false" />
-        <activity
             android:name=".LoginActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity
@@ -30,7 +24,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"
+            android:exported="false"/>
     </application>
 
 </manifest>

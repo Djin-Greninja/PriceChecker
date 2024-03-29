@@ -40,7 +40,8 @@ public class LoginActivity extends AppCompatActivity {
         cont_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navigateToNextActivity();
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -83,10 +84,6 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void navigateToNextActivity() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
 
 
     private void openTermsOfUse() {
@@ -96,7 +93,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void navigateToPreviousActivity() {
-        Intent intent = new Intent(this, IntroPage.class);
+        Intent intent = new Intent(LoginActivity.this, IntroPage.class);
         startActivity(intent);
     }
 
