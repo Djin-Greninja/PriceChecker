@@ -105,15 +105,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.viewpager2.widget.ViewPager2
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager1"
-        android:layout_width="410dp"
-        android:layout_height="144dp"
-        android:layout_marginTop="164dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="160dp"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+    />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

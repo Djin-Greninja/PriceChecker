@@ -12,9 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PriceChecker"
         tools:targetApi="31">
+
         <activity
             android:name=".LoginActivity"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustResize"/>
         <activity
             android:name=".IntroPage"
             android:exported="true">
@@ -24,8 +25,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"
-            android:exported="false"/>
+        <activity android:name=".MainActivity"/>
     </application>
 
 </manifest>
