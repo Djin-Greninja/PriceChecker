@@ -36,8 +36,6 @@ public class HorizontalPagerAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         View view = LayoutInflater.from(mContext).inflate(R.layout.view_pager_item, container, false);
-        TextView textView = view.findViewById(R.id.textView);
-        textView.setText(mData.get(position));
         container.addView(view);
         return view;
     }
