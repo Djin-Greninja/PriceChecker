@@ -283,5 +283,5 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:menu="@menu/bottom_nav_menu" />
+        app:menu="bottom_nav_menu" />
 </androidx.constraintlayout.widget.ConstraintLayout>
