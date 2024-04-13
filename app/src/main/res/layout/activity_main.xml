@@ -278,6 +278,8 @@
         app:itemHorizontalTranslationEnabled="false"
         app:labelVisibilityMode="labeled"
         app:itemIconSize="27dp"
+        app:itemIconTint="@color/bottom_nav_icon_color"
+        app:itemTextColor="@color/bottom_nav_item_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
