@@ -46,15 +46,15 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
-            app:fabCustomSize="50dp"
+            app:fabCustomSize="55dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#23AA49"
-            android:src="@drawable/home"
+            android:src="@drawable/checker"
             app:layout_anchor="@+id/bottomAppBar"
             android:handwritingBoundsOffsetBottom="20dp"
             app:layout_anchorGravity="top|center"
-            app:maxImageSize="30dp"
+            app:maxImageSize="35dp"
             app:tint="@color/white" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
