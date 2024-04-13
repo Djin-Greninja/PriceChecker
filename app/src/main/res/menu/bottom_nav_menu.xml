@@ -11,7 +11,7 @@
         android:title="Discover" />
     <item
         android:id="@+id/action_grocery_list"
-        android:icon="@drawable/ic_list_foreground"
+        android:icon="@drawable/ic_list"
         android:iconSize="24dp"
         android:title="List" />
     <item
