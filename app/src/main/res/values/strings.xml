@@ -4,4 +4,6 @@
     <string name="login_tag">Enter your mobile number</string>
     <string name="login_extra">We will send you a verification code</string>
     <string name="clickable_string">By clicking on `&quot;`Continue`&quot;` you are agreeing to our <a href="https://google.com">terms of use</a>.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
