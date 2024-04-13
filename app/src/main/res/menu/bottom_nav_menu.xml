@@ -6,7 +6,7 @@
         android:title="Home" />
     <item
         android:id="@+id/action_discover"
-        android:icon="@drawable/home_background"
+        android:icon="@drawable/ic_map"
         android:iconSize="24dp"
         android:title="Discover" />
     <item
