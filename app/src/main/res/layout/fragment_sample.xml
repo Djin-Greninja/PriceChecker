@@ -42,28 +42,28 @@
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="DuplicateIds,NotSibling" />
 
-        <TextView
-            android:id="@+id/greetins"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="3dp"
-            android:fontFamily="@font/dm_sans"
-            android:text="Good Morning!"
-            android:textColor="#979899"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/pofile_logo"
-            app:layout_constraintStart_toEndOf="@+id/pofile_logo"
-            app:layout_constraintTop_toTopOf="@+id/pofile_logo"
-            app:layout_constraintVertical_bias="0.0"
-            tools:ignore="DuplicateIds" />
+    <TextView
+        android:id="@+id/greetins"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="3dp"
+        android:fontFamily="@font/dm_sans"
+        android:text="Good Morning!"
+        android:textColor="#979899"
+        app:layout_constraintBottom_toBottomOf="@+id/pofile_logo"
+        app:layout_constraintStart_toEndOf="@+id/pofile_logo"
+        app:layout_constraintTop_toTopOf="@+id/pofile_logo"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="DuplicateIds" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="140dp"
         android:layout_height="49dp"
         android:layout_marginStart="60dp"
-        android:backgroundTint="#00FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        android:theme="@style/AppCompat"
         app:layout_constraintBottom_toBottomOf="@+id/pofile_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -72,38 +72,34 @@
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="SpeakableTextPresentCheck" />
 
+        <ImageView
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:src="@drawable/pin_foreground"
+            app:layout_constraintBottom_toBottomOf="@+id/button2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/button2"
+            app:layout_constraintTop_toTopOf="@+id/button2"
+            app:layout_constraintVertical_bias="0.714" />
+
         <TextView
             android:id="@+id/location"
-            android:layout_width="140dp"
-            android:layout_height="49dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
-            android:background="@color/white"
-            android:gravity="center"
             android:text="Location"
             android:textColor="#06161C"
             android:textSize="14sp"
             android:typeface="sans"
             app:layout_constraintBottom_toBottomOf="@+id/button2"
             app:layout_constraintEnd_toEndOf="@+id/button2"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.651"
             app:layout_constraintStart_toStartOf="@+id/button2"
             app:layout_constraintTop_toTopOf="@+id/button2"
-            app:layout_constraintVertical_bias="0.857" />
+            app:layout_constraintVertical_bias="0.0" />
 
-        <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="36dp"
-        android:layout_height="34dp"
-        android:layout_marginStart="3dp"
-        android:src="@drawable/pin_foreground"
-        android:layout_marginTop="5dp"
-        app:layout_constraintBottom_toBottomOf="@+id/button2"
-        app:layout_constraintStart_toStartOf="@+id/button2"
-        app:layout_constraintTop_toTopOf="@+id/button2"
-        app:layout_constraintVertical_bias="0.2" />
-
-
-    <SearchView
+        <SearchView
         android:id="@+id/searchBar"
         android:layout_width="360dp"
         android:layout_height="47dp"
@@ -142,36 +138,36 @@
         app:layout_constraintStart_toStartOf="@+id/searchBar"
         app:layout_constraintTop_toBottomOf="@+id/viewPager1" />
 
-        <TextView
-            android:id="@+id/see_all1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="176dp"
-            android:fontFamily="@font/dm_sans"
-            android:text="See All"
-            android:textColor="#23AA49"
-            android:textFontWeight="1000"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@+id/button2"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/mostViewed"
-            app:layout_constraintTop_toBottomOf="@+id/viewPager1" />
+    <TextView
+        android:id="@+id/see_all1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="188dp"
+        android:fontFamily="@font/dm_sans"
+        android:text="See All"
+        android:textColor="#23AA49"
+        android:textFontWeight="1000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/button2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/mostViewed"
+        app:layout_constraintTop_toBottomOf="@+id/viewPager1" />
 
-        <TextView
-            android:id="@+id/mostViewed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="176dp"
-            android:fontFamily="@font/dm_sans"
-            android:text="Most Checked"
-            android:textColor="#06161C"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/searchBar"
-            app:layout_constraintTop_toBottomOf="@+id/viewPager1" />
+    <TextView
+        android:id="@+id/mostViewed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="188dp"
+        android:fontFamily="@font/dm_sans"
+        android:text="Most Checked"
+        android:textColor="#06161C"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/searchBar"
+        app:layout_constraintTop_toBottomOf="@+id/viewPager1" />
 
-        <TextView
+    <TextView
         android:id="@+id/see_all2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -272,8 +268,4 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-    <GridLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
 </FrameLayout>
