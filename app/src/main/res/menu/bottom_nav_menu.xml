@@ -6,12 +6,12 @@
         android:title="Home" />
     <item
         android:id="@+id/action_discover"
-        android:icon="@drawable/ic_map"
+        android:icon="@drawable/discover_foreground"
         android:iconSize="24dp"
         android:title="Discover" />
     <item
         android:id="@+id/action_grocery_list"
-        android:icon="@drawable/ic_list"
+        android:icon="@drawable/list_foreground"
         android:iconSize="24dp"
         android:title="List" />
     <item
