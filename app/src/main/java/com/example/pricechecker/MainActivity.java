@@ -1,16 +1,17 @@
 package com.example.pricechecker;
 
 import android.os.Bundle;
-import android.view.MenuItem;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.pricechecker.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-    public BottomNavigationView bottomNavigationView;
+
     ActivityMainBinding binding;
 
     @Override
@@ -18,15 +19,33 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        replaceFragment(new HomeFragment());
 
         binding.bottomNavigation.setOnItemSelectedListener(item -> {
 
-            switch (item.getItemId()){
-                case R.id.home
+            if (item.getItemId() == R.id.action_home) {
+                replaceFragment(new HomeFragment());
+                return true;
+            } else if (item.getItemId() == R.id.action_discover) {
+                replaceFragment(new DiscoverFragment());
+                return true;
+            } else if (item.getItemId() == R.id.action_grocery_list) {
+                replaceFragment(new ListFragment());
+                return true;
+            } else if (item.getItemId() == R.id.action_profile) {
+                replaceFragment(new ProfileFragment());
+                return true;
             }
-
-            return true;
+            return false;
         });
+    }
+
+    private void replaceFragment(Fragment fragment){
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.container_layout,fragment);
+        fragmentTransaction.commit();
     }
 }
 
