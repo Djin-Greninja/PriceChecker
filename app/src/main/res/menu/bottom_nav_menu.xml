@@ -8,6 +8,8 @@
         android:icon="@drawable/discovery"
         android:title="Discover" />
     <item
+        android:title=""/>
+    <item
         android:id="@+id/action_grocery_list"
         android:icon="@drawable/groceries"
         android:title="List" />
