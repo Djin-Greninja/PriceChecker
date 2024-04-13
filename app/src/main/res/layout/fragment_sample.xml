@@ -72,23 +72,25 @@
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="SpeakableTextPresentCheck" />
 
-    <TextView
-        android:id="@+id/location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:text="Location"
-        android:textColor="#06161C"
-        android:textSize="14sp"
-        android:typeface="sans"
-        app:layout_constraintBottom_toBottomOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="@+id/button2"
-        app:layout_constraintHorizontal_bias="0.534"
-        app:layout_constraintStart_toStartOf="@+id/button2"
-        app:layout_constraintTop_toTopOf="@+id/button2"
-        app:layout_constraintVertical_bias="0.0" />
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="140dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="14dp"
+            android:background="@color/white"
+            android:gravity="center"
+            android:text="Location"
+            android:textColor="#06161C"
+            android:textSize="14sp"
+            android:typeface="sans"
+            app:layout_constraintBottom_toBottomOf="@+id/button2"
+            app:layout_constraintEnd_toEndOf="@+id/button2"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/button2"
+            app:layout_constraintTop_toTopOf="@+id/button2"
+            app:layout_constraintVertical_bias="0.857" />
 
-    <ImageView
+        <ImageView
         android:id="@+id/imageView2"
         android:layout_width="36dp"
         android:layout_height="34dp"
