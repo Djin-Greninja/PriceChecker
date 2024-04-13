@@ -2,17 +2,21 @@
     <item
         android:id="@+id/action_home"
         android:icon="@drawable/home_foreground"
-        android:iconSize="24dp"/>
+        android:iconSize="24dp"
+        android:title="Home" />
     <item
         android:id="@+id/action_discover"
-        android:icon="@drawable/discover_foreground"
-        android:iconSize="24dp"/>
+        android:icon="@drawable/home_background"
+        android:iconSize="24dp"
+        android:title="Discover" />
     <item
         android:id="@+id/action_grocery_list"
-        android:icon="@drawable/list_foreground"
-        android:iconSize="24dp"/>
+        android:icon="@drawable/home_foreground"
+        android:iconSize="24dp"
+        android:title="List" />
     <item
         android:id="@+id/action_profile"
-        android:icon="@drawable/profile_foreground"
-        android:iconSize="24dp"/>
+        android:icon="@drawable/home_foreground"
+        android:iconSize="24dp"
+        android:title="Profile" />
 </menu>
