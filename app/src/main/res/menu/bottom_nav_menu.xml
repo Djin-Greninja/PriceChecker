@@ -1,22 +1,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/action_home"
-        android:icon="@drawable/home_foreground"
+        android:icon="@drawable/home"
         android:iconSize="24dp"
         android:title="Home" />
     <item
         android:id="@+id/action_discover"
-        android:icon="@drawable/discover_foreground"
+        android:icon="@drawable/discovery"
         android:iconSize="24dp"
         android:title="Discover" />
     <item
         android:id="@+id/action_grocery_list"
-        android:icon="@drawable/list_foreground"
+        android:icon="@drawable/groceries"
         android:iconSize="24dp"
         android:title="List" />
     <item
         android:id="@+id/action_profile"
-        android:icon="@drawable/home_foreground"
+        android:icon="@drawable/user"
         android:iconSize="24dp"
         android:title="Profile" />
 </menu>
