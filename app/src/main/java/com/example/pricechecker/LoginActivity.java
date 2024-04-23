@@ -1,5 +1,6 @@
 package com.example.pricechecker;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
@@ -29,93 +30,106 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private DatabaseReference usersRef;
-    private Button  cont_btn;
-    public EditText username, emailadd, password, cpassword;
+    Button log_btn;
+    ImageButton back_btn;
+    EditText log_email, login_password;
+    TextView forgetpwd, signup_intent;
+    FirebaseUser currentUser;//used to store current user of account
+    FirebaseAuth mAuth;//Used for firebase authentication
+    ProgressDialog loadingBar;
 
-    private TextView terms;
-    private ImageButton button;
-    private FirebaseAuth mAuth;//Used for firebase authentication
-    private ProgressDialog loadingBar;//Used to show the progress of the registration process
-
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference usersRef = database.getReference("users");
+
+        log_email = findViewById(R.id.login_email);
+        login_password = findViewById(R.id.login_text_password);
+        back_btn = findViewById(R.id.back_btn_login);
+        log_btn = findViewById(R.id.login_btn);
+        forgetpwd = findViewById(R.id.forgetPassword);
+        signup_intent = findViewById(R.id.register_go);
         mAuth = FirebaseAuth.getInstance();
-        username = findViewById(R.id.username_signup);
-        emailadd = findViewById(R.id.editTextTextEmailAddress);
-        password = findViewById(R.id.text_password);
-        cpassword = findViewById(R.id.layout_cpassword);
-        button = findViewById(R.id.back_btn);
-        cont_btn = findViewById(R.id.continue_btn);
-        terms = findViewById(R.id.textView6);
         loadingBar = new ProgressDialog(this);
+        currentUser = mAuth.getCurrentUser();
 
-
-        cont_btn.setOnClickListener(new View.OnClickListener() {
+        log_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                createNewAccount();
+                AllowUserToLogin();
+            }
+        });
+        signup_intent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendUserToRegister();
+            }
+        });
+        //if user forgets the password then to reset it
+        forgetpwd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                resetPasswordUser();
             }
         });
     }
 
-    private void createNewAccount() {
-        String uname = username.getText().toString().trim();
-        String email = emailadd.getText().toString().trim();
-        String pwd = password.getText().toString();
+    private void resetPasswordUser() {
+        String email = log_email.getText().toString().trim();
+        if (TextUtils.isEmpty(email)) {
+            Toast.makeText(LoginActivity.this, "Please enter your email id", Toast.LENGTH_SHORT).show();
+        } else {
+            FirebaseAuth.getInstance().sendPasswordResetEmail(email)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(LoginActivity.this, "Reset Email sent", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+        }
+    }
 
-        if(TextUtils.isEmpty(email))
-        {
-            Toast.makeText(this,"Please enter email id",Toast.LENGTH_SHORT).show();
+    private void sendUserToRegister() {
+        //When user wants to create a new account send user to Register Activity
+        Intent registerIntent = new Intent(LoginActivity.this, SignUpActivity.class);
+        startActivity(registerIntent);
+    }
+
+    private void AllowUserToLogin() {
+        String email = log_email.getText().toString().trim();
+        String pwd = login_password.getText().toString();
+        if (TextUtils.isEmpty(email)) {
+            Toast.makeText(LoginActivity.this, "Please enter email id", Toast.LENGTH_SHORT).show();
         }
-        if(TextUtils.isEmpty(pwd))
-        {
-            Toast.makeText(this,"Please enter password",Toast.LENGTH_SHORT).show();
-        }
-        if(TextUtils.isEmpty(uname))
-        {
-            Toast.makeText(this,"Please enter username",Toast.LENGTH_SHORT).show();
-        }
-        if (!pwd.equals(cpassword)) {
-            Toast.makeText(this,"Passwords do not match",Toast.LENGTH_SHORT).show();
-            return;
-        }
-        else
-        {
-            //When both email and password are available create a new account
+        if (TextUtils.isEmpty(pwd)) {
+            Toast.makeText(LoginActivity.this, "Please enter password", Toast.LENGTH_SHORT).show();
+        } else {
+            //When both email and password are available log in to the account
             //Show the progress on Progress Dialog
-            loadingBar.setTitle("Creating New Account");
-            loadingBar.setMessage("Please wait, we are creating new Account");
-            loadingBar.setCanceledOnTouchOutside(true);
-            loadingBar.show();
-            mAuth.createUserWithEmailAndPassword(email,pwd)
+            loadingBar.setTitle("Sign In");
+            loadingBar.setMessage("Please wait ,Because Good things always take time");
+            mAuth.signInWithEmailAndPassword(email, pwd)
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful())//If account creation successful print message and send user to Login Activity
+                            if (task.isSuccessful())//If account login successful print message and send user to main Activity
                             {
-                                // Save user data to Firebase Realtime Database
-                                String userId = mAuth.getCurrentUser().getUid();
-                                User user = new User(uname, email, pwd);
-                                usersRef.child(userId).setValue(user);
-
-                                sendUserToLoginActivity();
-                                Toast.makeText(LoginActivity.this,"Account created successfully",Toast.LENGTH_SHORT).show();
+                                sendToMainActivity();
+                                Toast.makeText(LoginActivity.this, "Welcome to Reference Center", Toast.LENGTH_SHORT).show();
                                 loadingBar.dismiss();
-                            }
-                            else//Print the error message incase of failure
+                            } else//Print the error message incase of failure
                             {
                                 String msg = task.getException().toString();
-                                Toast.makeText(LoginActivity.this,"Error: "+msg,Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Error: " + msg, Toast.LENGTH_SHORT).show();
                                 loadingBar.dismiss();
                             }
                         }
@@ -123,62 +137,17 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private void sendUserToLoginActivity() {
-        //This is to send user to Login Activity.
-        Intent loginIntent = new Intent(LoginActivity.this,SignupActivity.class);
-        startActivity(loginIntent);
-
-
-        String clickableString = getString(R.string.clickable_string);
-
-        // Convert HTML string to Spanned
-        Spanned spannedText = Html.fromHtml(clickableString);
-
-        // Create a SpannableString from the Spanned
-        SpannableString spannableString = new SpannableString(spannedText);
-
-        // Find the index of the clickable part in the full text
-        int startIndex = clickableString.indexOf("terms of use");
-        int endIndex = startIndex + "terms of use".length();
-
-        // Set a ClickableSpan on the clickable part
-        ClickableSpan clickableSpan = new ClickableSpan() {
-            @Override
-            public void onClick(View widget) {
-                // Handle click action for terms of use
-                openTermsOfUse(); // You can define this method to open the terms of use page
-            }
-        };
-
-        // Set the ForegroundColorSpan to make the text appear in blue color
-        ForegroundColorSpan colorSpan = new ForegroundColorSpan(ContextCompat.getColor(this, R.color.blue));
-
-        spannableString.setSpan(clickableSpan, startIndex, endIndex, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        spannableString.setSpan(colorSpan, startIndex, endIndex, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-        // Set the text to the TextView
-        terms.setText(spannableString);
-
-        // Make the TextView clickable and handle link clicks
-        terms.setMovementMethod(LinkMovementMethod.getInstance());
-
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {navigateToPreviousActivity();}
-        });
+    protected void onStart() {
+        //Check if user has already signed in if yes send to mainActivity
+        //This to avoid signing in everytime you open the app.
+        super.onStart();
+        if (currentUser != null) {
+            sendToMainActivity();
+        }
     }
-
-
-
-    private void openTermsOfUse() {
-        String url = "https://google.com";
-        // Open the terms of use page in a web browser
-        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+    private void sendToMainActivity() {
+        //This is to send user to MainActivity
+        Intent  MainIntent = new Intent(LoginActivity.this,MainActivity.class);
+        startActivity(MainIntent);
     }
-
-    private void navigateToPreviousActivity() {
-        Intent intent = new Intent(LoginActivity.this, IntroPage.class);
-        startActivity(intent);
-    }
-
 }
