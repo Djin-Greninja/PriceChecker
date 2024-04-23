@@ -25,7 +25,7 @@
         app:srcCompat="@drawable/logo_pricechecker" />
 
     <TextView
-        android:id="@+id/username"
+        android:id="@+id/username_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
@@ -267,5 +267,14 @@
         app:layout_constraintStart_toStartOf="@+id/imageView8"
         app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/logout_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="604dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

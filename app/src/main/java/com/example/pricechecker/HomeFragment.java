@@ -1,5 +1,6 @@
 package com.example.pricechecker;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -7,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.SearchView;
+import android.widget.TextView;
+
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
@@ -22,6 +25,9 @@ public class HomeFragment extends Fragment {
     private Handler handler = new Handler();
     private Runnable runnable;
 
+    public TextView username, log_out;
+
+    @SuppressLint("MissingInflatedId")
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -32,6 +38,7 @@ public class HomeFragment extends Fragment {
         location = view.findViewById(R.id.button2);
         sV = view.findViewById(R.id.searchBar);
         viewPager = view.findViewById(R.id.viewPager1);
+        log_out = view.findViewById(R.id.logout_btn);
 
         List<String> data = new ArrayList<>();
         data.add("Item 1");
