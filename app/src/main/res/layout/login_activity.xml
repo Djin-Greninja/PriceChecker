@@ -54,6 +54,7 @@
         android:background="@drawable/rounded_frame"
         android:ems="10"
         android:hint="Email"
+        android:drawableStart="@drawable/baseline_lock"
         android:inputType="textEmailAddress"
         android:paddingLeft="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,7 +69,6 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/rounded_frame"
         android:ems="10"
-
         android:hint="Username"
         android:inputType="text"
         android:paddingLeft="20dp"
