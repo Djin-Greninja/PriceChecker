@@ -1,6 +1,7 @@
 package com.example.pricechecker;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -13,8 +14,17 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class HomeFragment extends Fragment {
     Button location;
@@ -22,10 +32,12 @@ public class HomeFragment extends Fragment {
     ViewPager viewPager;
     private final long DELAY_MS = 500; // Delay in milliseconds before task is to be executed
     private final long PERIOD_MS = 6000; // Time in milliseconds between successive task executions
-    private Handler handler = new Handler();
+    private final Handler handler = new Handler();
     private Runnable runnable;
+    private FirebaseAuth mAuth;//Used for firebase authentication
 
-    public TextView username, log_out;
+    private DatabaseReference usersRef;
+    public Button log_out;
 
     @SuppressLint("MissingInflatedId")
     @Nullable
@@ -33,12 +45,47 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_sample, container, false);
-
+        usersRef = FirebaseDatabase.getInstance().getReference("users");
+        mAuth = FirebaseAuth.getInstance();
         // Find views by ID using the 'view' object
         location = view.findViewById(R.id.button2);
         sV = view.findViewById(R.id.searchBar);
         viewPager = view.findViewById(R.id.viewPager1);
         log_out = view.findViewById(R.id.logout_btn);
+
+        // Fetch the username from Firebase Realtime Database
+        String userId = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
+        usersRef.child(userId).child("username").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    String username = dataSnapshot.getValue(String.class);
+                    // Update UI with the fetched username
+                    // For example, if you have a TextView to display the username:
+                    TextView textViewUsername = view.findViewById(R.id.username_id);
+                    textViewUsername.setText(username);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Handle errors
+            }
+        });
+
+        log_out.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Perform logout
+                FirebaseAuth.getInstance().signOut();
+                // Redirect user to login screen or any other desired action
+                // For example, you can start LoginActivity
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                startActivity(intent);
+                // Finish current activity to prevent user from going back to it using the back button
+                getActivity().finish();
+            }
+        });
 
         List<String> data = new ArrayList<>();
         data.add("Item 1");
