@@ -85,7 +85,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:background="@drawable/rounded_frame"
-            android:drawableLeft="@drawable/lock"
+            android:drawableStart="@drawable/lock"
             android:drawablePadding="5dp"
             android:ems="10"
             android:hint="Password"

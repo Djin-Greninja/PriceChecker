@@ -1,5 +1,6 @@
 package com.example.pricechecker;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
@@ -25,6 +26,7 @@ import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -34,13 +36,14 @@ public class SignUpActivity extends AppCompatActivity {
 
     private DatabaseReference usersRef;
     private Button  cont_btn;
-    public EditText username, emailadd, password, cpassword;
-
+    public EditText username, emailadd;
+    public TextInputLayout password, cpassword;
     private TextView terms;
     private ImageButton button;
     private FirebaseAuth mAuth;//Used for firebase authentication
     private ProgressDialog loadingBar;//Used to show the progress of the registration process
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,12 +53,50 @@ public class SignUpActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         username = findViewById(R.id.username_signup);
         emailadd = findViewById(R.id.login_email);
-        password = findViewById(R.id.login_text_password);
+        password = findViewById(R.id.login_layout_password);
         cpassword = findViewById(R.id.layout_cpassword);
-        button = findViewById(R.id.back_btn_login);
+        button = findViewById(R.id.back_btn_signup);
         cont_btn = findViewById(R.id.login_btn);
         terms = findViewById(R.id.textView6);
         loadingBar = new ProgressDialog(this);
+
+        String clickableString = getString(R.string.clickable_string);
+
+        // Convert HTML string to Spanned
+        Spanned spannedText = Html.fromHtml(clickableString);
+
+        // Create a SpannableString from the Spanned
+        SpannableString spannableString = new SpannableString(spannedText);
+
+        // Find the index of the clickable part in the full text
+        int startIndex = clickableString.indexOf("terms of use");
+        int endIndex = startIndex + "terms of use".length();
+
+        // Set a ClickableSpan on the clickable part
+        ClickableSpan clickableSpan = new ClickableSpan() {
+            @Override
+            public void onClick(View widget) {
+                // Handle click action for terms of use
+                openTermsOfUse(); // You can define this method to open the terms of use page
+            }
+        };
+
+        // Set the ForegroundColorSpan to make the text appear in blue color
+        ForegroundColorSpan colorSpan = new ForegroundColorSpan(ContextCompat.getColor(this, R.color.blue));
+
+        spannableString.setSpan(clickableSpan, startIndex, endIndex, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableString.setSpan(colorSpan, startIndex, endIndex, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        // Set the text to the TextView
+        terms.setText(spannableString);
+
+        // Make the TextView clickable and handle link clicks
+        terms.setMovementMethod(LinkMovementMethod.getInstance());
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {navigateToPreviousActivity();}
+        });
 
 
         cont_btn.setOnClickListener(new View.OnClickListener() {
@@ -69,7 +110,8 @@ public class SignUpActivity extends AppCompatActivity {
     private void createNewAccount() {
         String uname = username.getText().toString().trim();
         String email = emailadd.getText().toString().trim();
-        String pwd = password.getText().toString();
+        String pwd = password.getEditText().getText().toString();
+        String confpwd = cpassword.getEditText().getText().toString();
 
         if(TextUtils.isEmpty(email))
         {
@@ -83,7 +125,7 @@ public class SignUpActivity extends AppCompatActivity {
         {
             Toast.makeText(this,"Please enter username",Toast.LENGTH_SHORT).show();
         }
-        if (!pwd.equals(cpassword)) {
+        if (!pwd.equals(confpwd)) {
             Toast.makeText(this,"Passwords do not match",Toast.LENGTH_SHORT).show();
             return;
         }
@@ -125,45 +167,6 @@ public class SignUpActivity extends AppCompatActivity {
         //This is to send user to Login Activity.
         Intent loginIntent = new Intent(SignUpActivity.this,LoginActivity.class);
         startActivity(loginIntent);
-
-
-        String clickableString = getString(R.string.clickable_string);
-
-        // Convert HTML string to Spanned
-        Spanned spannedText = Html.fromHtml(clickableString);
-
-        // Create a SpannableString from the Spanned
-        SpannableString spannableString = new SpannableString(spannedText);
-
-        // Find the index of the clickable part in the full text
-        int startIndex = clickableString.indexOf("terms of use");
-        int endIndex = startIndex + "terms of use".length();
-
-        // Set a ClickableSpan on the clickable part
-        ClickableSpan clickableSpan = new ClickableSpan() {
-            @Override
-            public void onClick(View widget) {
-                // Handle click action for terms of use
-                openTermsOfUse(); // You can define this method to open the terms of use page
-            }
-        };
-
-        // Set the ForegroundColorSpan to make the text appear in blue color
-        ForegroundColorSpan colorSpan = new ForegroundColorSpan(ContextCompat.getColor(this, R.color.blue));
-
-        spannableString.setSpan(clickableSpan, startIndex, endIndex, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        spannableString.setSpan(colorSpan, startIndex, endIndex, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-        // Set the text to the TextView
-        terms.setText(spannableString);
-
-        // Make the TextView clickable and handle link clicks
-        terms.setMovementMethod(LinkMovementMethod.getInstance());
-
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {navigateToPreviousActivity();}
-        });
     }
 
 

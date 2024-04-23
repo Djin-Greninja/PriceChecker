@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <ImageButton
-        android:id="@+id/back_btn_login"
+        android:id="@+id/back_btn_signup"
         android:layout_width="52dp"
         android:layout_height="49dp"
         android:background="@drawable/back_btn"
@@ -100,7 +100,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:background="@drawable/rounded_frame"
-            android:drawableLeft="@drawable/lock"
+            android:drawableStart="@drawable/lock"
             android:drawablePadding="5dp"
             android:ems="10"
             android:hint="Confirm Password"
@@ -162,7 +162,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:background="@drawable/rounded_frame"
-            android:drawableLeft="@drawable/lock"
+            android:drawableStart="@drawable/lock"
             android:drawablePadding="5dp"
             android:ems="10"
             android:hint="Password"
