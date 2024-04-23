@@ -23,8 +23,7 @@ import androidx.core.content.ContextCompat;
 public class LoginActivity extends AppCompatActivity {
 
     private Button  cont_btn;
-    private EditText editTextPhone;
-
+    private EditText username, email, password, cpassword;
     private ImageButton button;
 
     @Override
@@ -32,9 +31,17 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
 
+        username = findViewById(R.id.username_signup);
+        email = findViewById(R.id.editTextTextEmailAddress);
+        password = findViewById(R.id.text_password);
+        cpassword = findViewById(R.id.layout_cpassword);
         button = findViewById(R.id.back_btn);
         cont_btn = findViewById(R.id.continue_btn);
         TextView textView = findViewById(R.id.textView6);
+
+
+
+
 
         cont_btn.setOnClickListener(new View.OnClickListener() {
             @Override
