@@ -34,7 +34,6 @@ public class LoginActivity extends AppCompatActivity {
 
         button = findViewById(R.id.back_btn);
         cont_btn = findViewById(R.id.continue_btn);
-        editTextPhone = findViewById(R.id.editTextPhone);
         TextView textView = findViewById(R.id.textView6);
 
         cont_btn.setOnClickListener(new View.OnClickListener() {

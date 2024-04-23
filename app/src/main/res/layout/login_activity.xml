@@ -41,10 +41,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintHorizontal_bias="0.554"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2"
-        app:layout_constraintVertical_bias="0.11" />
+        app:layout_constraintTop_toBottomOf="@+id/layout_cpassword"
+        app:layout_constraintVertical_bias="0.084" />
 
     <EditText
         android:id="@+id/editTextTextEmailAddress"
@@ -52,12 +52,13 @@
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/rounded_frame"
-        android:ems="10"
-        android:hint="Email"
         android:drawableStart="@drawable/baseline_email"
         android:drawablePadding="5dp"
+        android:ems="10"
+        android:hint="Email"
         android:inputType="textEmailAddress"
         android:paddingLeft="15dp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.54"
         app:layout_constraintStart_toStartOf="parent"
@@ -69,31 +70,45 @@
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/rounded_frame"
+        android:drawableLeft="@drawable/baseline_person_24"
+        android:drawablePadding="5dp"
         android:ems="10"
         android:hint="Username"
         android:inputType="text"
-        android:paddingLeft="20dp"
+        android:paddingLeft="15dp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
-    <EditText
-        android:id="@+id/editTextTextPassword2"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_cpassword"
         android:layout_width="337dp"
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/rounded_frame"
-        android:drawableLeft="@drawable/lock"
-        android:ems="10"
-        android:hint="Confirm Password"
-        android:inputType="textPassword"
-        android:paddingLeft="15dp"
-        android:drawablePadding="5dp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword"
+        app:boxStrokeColor="#00FFFFFF"
+        app:boxStrokeWidth="0dp"
+        app:layout_constraintEnd_toEndOf="@+id/layout_password"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPassword"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintStart_toStartOf="@+id/layout_password"
+        app:layout_constraintTop_toBottomOf="@+id/layout_password"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/text_cpassword"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/rounded_frame"
+            android:drawableLeft="@drawable/lock"
+            android:drawablePadding="5dp"
+            android:ems="10"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
+            android:paddingLeft="15dp"
+            android:paddingTop="10dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/sign_up"
@@ -129,23 +144,33 @@
         app:layout_constraintStart_toStartOf="@+id/sign_up"
         app:layout_constraintTop_toBottomOf="@+id/sign_up" />
 
-    <EditText
-        android:id="@+id/editTextTextPassword"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_password"
         android:layout_width="337dp"
         android:layout_height="60dp"
+        app:boxStrokeWidth="0dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/rounded_frame"
-        android:drawableLeft="@drawable/lock"
-        android:drawablePadding="5dp"
-        android:ems="10"
-        android:hint="Create Password"
-        android:inputType="textPassword"
-        android:paddingLeft="15dp"
-        app:endIconMode="password_toggle"
+        app:passwordToggleEnabled="true"
+        app:boxStrokeColor="#00FFFFFF"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextEmailAddress"
         app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/text_password"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/rounded_frame"
+                android:drawableLeft="@drawable/lock"
+                android:drawablePadding="5dp"
+                android:ems="10"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:paddingLeft="15dp"
+                android:paddingTop="10dp"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/textView6"
