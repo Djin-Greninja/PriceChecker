@@ -6,4 +6,13 @@
     </style>
     <style name="AppCompat" parent="Theme.Material3.DayNight.NoActionBar"/>
     <style name="Theme.PriceChecker" parent="Base.Theme.PriceChecker" />
+    <style name="CustomButton" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:background">@drawable/button_square</item>
+    </style>
+    <!-- styles.xml -->
+    <style name="CustomSwitchStyle" parent="@android:style/Widget.Material.CompoundButton.Switch">
+        <item name="android:thumb">@drawable/switch_shape</item>
+        <item name="android:track">@drawable/switch_track</item>
+    </style>
+
 </resources>
