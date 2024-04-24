@@ -59,18 +59,18 @@ public class ProfileFragment extends Fragment {
 
         // Fetch the username from Firebase Realtime Database
         String userId = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
-        usersRef.child(userId).child("username").addListenerForSingleValueEvent(new ValueEventListener() {
+        usersRef.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
-                    String username = dataSnapshot.getValue(String.class);
-                    String email = dataSnapshot.getValue(String.class);
+                    String username = dataSnapshot.child("username").getValue(String.class);
+                    String email = dataSnapshot.child("email").getValue(String.class);
                     // Update UI with the fetched username
                     // For example, if you have a TextView to display the username:
                     TextView textViewUsername = view.findViewById(R.id.uname_profile);
                     textViewUsername.setText(username);
-                    TextView textViewUsername2 = view.findViewById(R.id.mail_profile);
-                    textViewUsername2.setText(email);
+                    TextView textViewEmail = view.findViewById(R.id.mail_profile);
+                    textViewEmail.setText(email);
                 }
             }
 
