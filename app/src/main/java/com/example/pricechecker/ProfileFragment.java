@@ -11,6 +11,9 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.viewmodel.CreationExtras;
 
 public class ProfileFragment extends Fragment {
+
+
+
     @NonNull
     @Override
     public CreationExtras getDefaultViewModelCreationExtras() {
@@ -19,6 +22,6 @@ public class ProfileFragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.activity_profile, container, false);
+        return inflater.inflate(R.layout.fragment_profile_page, container, false);
     }
 }
