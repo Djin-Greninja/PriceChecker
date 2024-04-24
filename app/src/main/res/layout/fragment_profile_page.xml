@@ -39,7 +39,7 @@
             app:layout_constraintVertical_bias="0.4" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/uname_profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="64dp"
@@ -52,7 +52,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
         <TextView
-            android:id="@+id/textView7"
+            android:id="@+id/mail_profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="email@email.com"
@@ -61,21 +61,21 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/textView5"
-            app:layout_constraintTop_toBottomOf="@+id/textView5"
+            app:layout_constraintStart_toStartOf="@+id/uname_profile"
+            app:layout_constraintTop_toBottomOf="@+id/uname_profile"
             app:layout_constraintVertical_bias="0.0" />
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/logout_btn_profile"
             android:layout_width="33dp"
             android:layout_height="37dp"
             android:layout_marginEnd="28dp"
             android:backgroundTint="#00FFFFFF"
-            app:layout_constraintBottom_toBottomOf="@+id/textView7"
+            app:layout_constraintBottom_toBottomOf="@+id/mail_profile"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/textView5"
-            app:layout_constraintTop_toTopOf="@+id/textView5"
+            app:layout_constraintStart_toEndOf="@+id/uname_profile"
+            app:layout_constraintTop_toTopOf="@+id/uname_profile"
             app:layout_constraintVertical_bias="1.0"
             tools:src="@drawable/baseline_logout_24" />
 
@@ -101,10 +101,10 @@
             android:theme="@style/CustomButton"
             app:cornerRadius="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/imageButton"
+            app:layout_constraintEnd_toEndOf="@+id/logout_btn_profile"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/textView8"
-            app:layout_constraintTop_toBottomOf="@+id/textView7"
+            app:layout_constraintTop_toBottomOf="@+id/mail_profile"
             app:layout_constraintVertical_bias="0.0"
             tools:ignore="SpeakableTextPresentCheck" />
 
@@ -157,7 +157,7 @@
             android:theme="@style/CustomButton"
             app:cornerRadius="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/imageButton"
+            app:layout_constraintEnd_toEndOf="@+id/logout_btn_profile"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/textView8"
             app:layout_constraintTop_toBottomOf="@+id/account_info_btn"
@@ -212,7 +212,7 @@
             android:theme="@style/CustomButton"
             app:cornerRadius="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/imageButton"
+            app:layout_constraintEnd_toEndOf="@+id/logout_btn_profile"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/textView8"
             app:layout_constraintTop_toBottomOf="@+id/password_profile"
@@ -267,7 +267,7 @@
             android:theme="@style/CustomButton"
             app:cornerRadius="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/imageButton"
+            app:layout_constraintEnd_toEndOf="@+id/logout_btn_profile"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/textView8"
             app:layout_constraintTop_toBottomOf="@+id/privacy_policy"
@@ -310,14 +310,14 @@
             android:thumbTint="#FFFFFF"
             android:trackTint="#FF47A920"
             app:layout_constraintBottom_toBottomOf="@+id/notif_btn"
-            app:layout_constraintEnd_toEndOf="@+id/imageButton"
+            app:layout_constraintEnd_toEndOf="@+id/logout_btn_profile"
             app:layout_constraintHorizontal_bias="0.993"
             app:layout_constraintStart_toEndOf="@+id/notif_text"
             app:layout_constraintTop_toBottomOf="@+id/arrow3"
             app:layout_constraintVertical_bias="0.679" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/fback"
             android:layout_width="362dp"
             android:layout_height="137dp"
             android:layout_marginTop="48dp"

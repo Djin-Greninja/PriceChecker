@@ -37,7 +37,6 @@ public class HomeFragment extends Fragment {
     private FirebaseAuth mAuth;//Used for firebase authentication
 
     private DatabaseReference usersRef;
-    public Button log_out;
 
     @SuppressLint("MissingInflatedId")
     @Nullable
@@ -51,7 +50,7 @@ public class HomeFragment extends Fragment {
         location = view.findViewById(R.id.button2);
         sV = view.findViewById(R.id.searchBar);
         viewPager = view.findViewById(R.id.viewPager1);
-        log_out = view.findViewById(R.id.logout_btn);
+
 
         // Fetch the username from Firebase Realtime Database
         String userId = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
@@ -73,19 +72,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        log_out.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Perform logout
-                FirebaseAuth.getInstance().signOut();
-                // Redirect user to login screen or any other desired action
-                // For example, you can start LoginActivity
-                Intent intent = new Intent(getActivity(), LoginActivity.class);
-                startActivity(intent);
-                // Finish current activity to prevent user from going back to it using the back button
-                getActivity().finish();
-            }
-        });
+
 
         List<String> data = new ArrayList<>();
         data.add("Item 1");
