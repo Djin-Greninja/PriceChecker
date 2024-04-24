@@ -316,6 +316,27 @@
             app:layout_constraintTop_toBottomOf="@+id/arrow3"
             app:layout_constraintVertical_bias="0.679" />
 
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="362dp"
+            android:layout_height="137dp"
+            android:layout_marginTop="48dp"
+            android:backgroundTint="#E8E8E8"
+            android:fontFamily="@font/dm_sans"
+            android:text="How can we help you?"
+            android:textColor="#06161C"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:theme="@style/CustomButton"
+            android:typeface="normal"
+            app:cornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/notif_btn"
+            app:layout_constraintHorizontal_bias="0.571"
+            app:layout_constraintStart_toStartOf="@+id/notif_btn"
+            app:layout_constraintTop_toBottomOf="@+id/notif_btn"
+            app:layout_constraintVertical_bias="0.074" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
