@@ -341,7 +341,7 @@
             android:id="@+id/imageView9"
             android:layout_width="105dp"
             android:layout_height="104dp"
-            android:src="@drawable/sampleProfile"
+            android:src="@drawable/sample_profile"
             app:layout_constraintBottom_toTopOf="@+id/textView8"
             app:layout_constraintEnd_toStartOf="@+id/uname_profile"
             app:layout_constraintHorizontal_bias="0.086"
