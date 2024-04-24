@@ -114,7 +114,7 @@ public class LoginActivity extends AppCompatActivity {
                             if (task.isSuccessful())//If account login successful print message and send user to main Activity
                             {
                                 sendToMainActivity();
-                                Toast.makeText(LoginActivity.this, "Welcome to Reference Center", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
                                 loadingBar.dismiss();
                             } else//Print the error message incase of failure
                             {
