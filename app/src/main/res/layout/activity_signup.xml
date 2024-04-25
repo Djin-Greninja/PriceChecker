@@ -41,28 +41,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.554"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_cpassword"
-        app:layout_constraintVertical_bias="0.084" />
-
-    <EditText
-        android:id="@+id/login_email"
-        android:layout_width="337dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/rounded_frame"
-        android:drawableStart="@drawable/baseline_email"
-        android:drawablePadding="5dp"
-        android:ems="10"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:paddingLeft="15dp"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.54"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username_signup" />
+        app:layout_constraintTop_toBottomOf="@+id/layout_cpassword"
+        app:layout_constraintVertical_bias="0.509" />
 
     <EditText
         android:id="@+id/username_signup"
@@ -78,6 +60,70 @@
         android:paddingLeft="15dp"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/fNAme"
+        app:layout_constraintTop_toBottomOf="@+id/fNAme" />
+
+    <EditText
+        android:id="@+id/login_email"
+        android:layout_width="337dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_frame"
+        android:drawableStart="@drawable/baseline_email"
+        android:drawablePadding="5dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="15dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/username_signup" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/login_layout_password"
+        android:layout_width="337dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        app:boxStrokeColor="#00FFFFFF"
+        app:boxStrokeWidth="0dp"
+        app:layout_constraintEnd_toEndOf="@+id/login_email"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/login_email"
+        app:layout_constraintTop_toBottomOf="@+id/login_email"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/login_text_password"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/rounded_frame"
+            android:drawableStart="@drawable/lock"
+            android:drawablePadding="5dp"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:paddingLeft="15dp"
+            android:paddingTop="10dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <EditText
+        android:id="@+id/fNAme"
+        android:layout_width="337dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_frame"
+        android:drawableLeft="@drawable/"
+        android:drawablePadding="5dp"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="text"
+        android:paddingLeft="15dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
@@ -86,11 +132,11 @@
         android:id="@+id/layout_cpassword"
         android:layout_width="337dp"
         android:layout_height="60dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="28dp"
         app:boxStrokeColor="#00FFFFFF"
         app:boxStrokeWidth="0dp"
         app:layout_constraintEnd_toEndOf="@+id/login_layout_password"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/login_layout_password"
         app:layout_constraintTop_toBottomOf="@+id/login_layout_password"
         app:passwordToggleEnabled="true">
@@ -143,34 +189,6 @@
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="@+id/Login"
         app:layout_constraintTop_toBottomOf="@+id/Login" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/login_layout_password"
-        android:layout_width="337dp"
-        android:layout_height="60dp"
-        app:boxStrokeWidth="0dp"
-        android:layout_marginTop="20dp"
-        app:passwordToggleEnabled="true"
-        app:boxStrokeColor="#00FFFFFF"
-        app:layout_constraintEnd_toEndOf="@+id/login_email"
-        app:layout_constraintHorizontal_bias="0.533"
-        app:layout_constraintStart_toStartOf="@+id/login_email"
-        app:layout_constraintTop_toBottomOf="@+id/login_email">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/login_text_password"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="@drawable/rounded_frame"
-            android:drawableStart="@drawable/lock"
-            android:drawablePadding="5dp"
-            android:ems="10"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:paddingLeft="15dp"
-            android:paddingTop="10dp"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/textView6"
