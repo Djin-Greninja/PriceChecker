@@ -63,12 +63,12 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
-                    String username = dataSnapshot.child("username").getValue(String.class);
+                    String fullName = dataSnapshot.child("fullName").getValue(String.class);
                     String email = dataSnapshot.child("email").getValue(String.class);
                     // Update UI with the fetched username
                     // For example, if you have a TextView to display the username:
-                    TextView textViewUsername = view.findViewById(R.id.uname_profile);
-                    textViewUsername.setText(username);
+                    TextView textViewFullName = view.findViewById(R.id.uname_profile);
+                    textViewFullName.setText(fullName);
                     TextView textViewEmail = view.findViewById(R.id.mail_profile);
                     textViewEmail.setText(email);
                 }

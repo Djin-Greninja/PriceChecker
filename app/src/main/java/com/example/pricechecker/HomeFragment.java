@@ -54,15 +54,15 @@ public class HomeFragment extends Fragment {
 
         // Fetch the username from Firebase Realtime Database
         String userId = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
-        usersRef.child(userId).child("username").addListenerForSingleValueEvent(new ValueEventListener() {
+        usersRef.child(userId).child("fullName").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
-                    String username = dataSnapshot.getValue(String.class);
+                    String fullName = dataSnapshot.getValue(String.class);
                     // Update UI with the fetched username
                     // For example, if you have a TextView to display the username:
                     TextView textViewUsername = view.findViewById(R.id.username_id);
-                    textViewUsername.setText(username);
+                    textViewUsername.setText(fullName);
                 }
             }
 
