@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/profile_bg">
+        android:background="@drawable/bg_profile">
 
         <ImageButton
             android:id="@+id/back_btn_profile"
@@ -40,9 +40,9 @@
 
         <TextView
             android:id="@+id/uname_profile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
+            android:layout_width="77dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="56dp"
             android:text="Username"
             android:textColor="#292D32"
             android:textSize="16sp"
@@ -339,15 +339,15 @@
 
         <ImageView
             android:id="@+id/imageView9"
-            android:layout_width="105dp"
-            android:layout_height="104dp"
+            android:layout_width="95dp"
+            android:layout_height="90dp"
             android:src="@drawable/sample_profile"
             app:layout_constraintBottom_toTopOf="@+id/textView8"
             app:layout_constraintEnd_toStartOf="@+id/uname_profile"
-            app:layout_constraintHorizontal_bias="0.086"
+            app:layout_constraintHorizontal_bias="0.371"
             app:layout_constraintStart_toStartOf="@+id/back_btn_profile"
             app:layout_constraintTop_toBottomOf="@+id/back_btn_profile"
-            app:layout_constraintVertical_bias="0.212" />
+            app:layout_constraintVertical_bias="0.233" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
