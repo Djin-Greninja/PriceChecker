@@ -47,8 +47,8 @@
             android:textColor="#292D32"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.461"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.116"
+            app:layout_constraintStart_toEndOf="@+id/imageView9"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
         <TextView
@@ -343,11 +343,11 @@
             android:layout_height="90dp"
             android:src="@drawable/sample_profile"
             app:layout_constraintBottom_toTopOf="@+id/textView8"
-            app:layout_constraintEnd_toStartOf="@+id/uname_profile"
-            app:layout_constraintHorizontal_bias="0.371"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.006"
             app:layout_constraintStart_toStartOf="@+id/back_btn_profile"
             app:layout_constraintTop_toBottomOf="@+id/back_btn_profile"
-            app:layout_constraintVertical_bias="0.233" />
+            app:layout_constraintVertical_bias="0.207" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
