@@ -18,6 +18,7 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -45,6 +46,28 @@ public class UpdatePassword extends AppCompatActivity {
         new_pwd = findViewById(R.id.new_password);
         conf_newpwd = findViewById(R.id.login_layout_password);
         update_pwd_btn = findViewById(R.id.update_password_btn);
+
+        // Fetch and display user's full name and email
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null) {
+            String userId = currentUser.getUid();
+            usersRef.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        String fullNameStr = dataSnapshot.child("fullName").getValue(String.class);
+                        String emailStr = dataSnapshot.child("email").getValue(String.class);
+                        fullname.setText(fullNameStr);
+                        email_p.setText(emailStr);
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    // Handle database errors
+                }
+            });
+        }
 
         // Set OnClickListener for the update password button
         update_pwd_btn.setOnClickListener(new View.OnClickListener() {
