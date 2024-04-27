@@ -14,6 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.viewmodel.CreationExtras;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -56,6 +57,16 @@ public class ProfileFragment extends Fragment {
         toggle_notif = view.findViewById(R.id.switch1);
         feedback = view.findViewById(R.id.fback);
 
+        acc_info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Start a new activity or perform any other desired action
+                // For example, you can start a new activity
+                Intent intent = new Intent(getActivity(), UpdateProfileActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         // Fetch the username from Firebase Realtime Database
         String userId = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
@@ -79,6 +90,7 @@ public class ProfileFragment extends Fragment {
                 // Handle errors
             }
         });
+
         logout_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,5 +106,7 @@ public class ProfileFragment extends Fragment {
         });
 
         return view;
+
     }
+
 }
