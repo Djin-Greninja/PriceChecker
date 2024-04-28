@@ -6,4 +6,7 @@
     <string name="clickable_string">By clicking on `&quot;`Continue`&quot;` you are agreeing to our <a href="https://google.com">terms of use</a>.</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- TODO: Mapbox Installation -->
+    <string name="mapbox_access_token">sk.eyJ1IjoiYWxseXphLTEyMyIsImEiOiJjbHZpNjNtNG0xNWJwMnFwNTJuZWg4YzBoIn0.4uZbDB4KD3y0i_cP42E9vA</string>
 </resources>
