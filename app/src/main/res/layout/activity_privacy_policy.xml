@@ -54,6 +54,7 @@
         app:layout_constraintVertical_bias="0.36" />
 
     <ScrollView
+        android:id="@+id/scrollview_pp"
         android:layout_width="334dp"
         android:layout_height="623dp"
         android:layout_marginTop="88dp"
@@ -66,7 +67,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/privacy_policy"
+            android:text="Terms and Conditins"
+
             android:padding="16dp"
             android:scrollbars="vertical"/>
     </ScrollView>

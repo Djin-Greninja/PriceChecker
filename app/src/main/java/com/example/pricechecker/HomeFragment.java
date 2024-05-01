@@ -13,6 +13,9 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,9 +30,12 @@ import java.util.List;
 import java.util.Objects;
 
 public class HomeFragment extends Fragment {
+    ArrayList<RecyclerView_List> recyclerView_list;
+    RecyclerView recyclerView;
     Button location;
     SearchView sV;
     ViewPager viewPager;
+    TextView seeAllItem;
     private final long DELAY_MS = 500; // Delay in milliseconds before task is to be executed
     private final long PERIOD_MS = 6000; // Time in milliseconds between successive task executions
     private final Handler handler = new Handler();
@@ -50,7 +56,29 @@ public class HomeFragment extends Fragment {
         location = view.findViewById(R.id.button2);
         sV = view.findViewById(R.id.searchBar);
         viewPager = view.findViewById(R.id.viewPager1);
+        seeAllItem = view.findViewById(R.id.see_all2);
+        recyclerView = view.findViewById(R.id.recyclerView_home);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
 
+        recyclerView_list = new ArrayList<>();
+        recyclerView_list.add(new RecyclerView_List(R.drawable.wings, "Chicken Wings", "₱200/kg"));
+        recyclerView_list.add(new RecyclerView_List(R.drawable.ginger, "Ginger", "₱120/kg"));
+        recyclerView_list.add(new RecyclerView_List(R.drawable.pork, "Pork Meat", "₱280/kg"));
+
+        RecyclerView_Adapter recyclerView_adapter = new RecyclerView_Adapter(recyclerView_list, getActivity());
+        recyclerView.setAdapter(recyclerView_adapter);
+
+
+        seeAllItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Start a new activity or perform any other desired action
+                // For example, you can start a new activity
+                Intent intent = new Intent(getActivity(), CardView.class);
+                startActivity(intent);
+            }
+        });
 
         // Fetch the username from Firebase Realtime Database
         String userId = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();

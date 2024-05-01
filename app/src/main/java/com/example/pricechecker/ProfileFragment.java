@@ -77,6 +77,16 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        pp_set.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Start a new activity or perform any other desired action
+                // For example, you can start a new activity
+                Intent intent = new Intent(getActivity(), PrivacyPolicy.class);
+                startActivity(intent);
+            }
+        });
+
         // Fetch the username from Firebase Realtime Database
         String userId = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
         usersRef.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {

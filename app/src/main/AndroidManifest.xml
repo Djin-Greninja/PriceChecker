@@ -8,6 +8,9 @@
     <!-- Include only if your app benefits from precise location access. -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -18,6 +21,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PriceChecker"
         tools:targetApi="31">
+        <activity android:name=".CardView"
+            android:exported="false"/>
+        <activity android:name=".Pages"
+            android:exported="false"/>
         <activity
             android:name=".PrivacyPolicy"
             android:exported="false" />
