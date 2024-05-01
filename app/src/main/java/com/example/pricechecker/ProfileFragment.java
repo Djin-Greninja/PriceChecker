@@ -3,6 +3,7 @@ package com.example.pricechecker;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,8 @@ import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.Manifest;
+
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -38,8 +41,6 @@ public class ProfileFragment extends Fragment {
     TextView username_profile, email_profile;
 
     private static final int PERMISSION_REQUEST_CODE = 100;
-
-    private static final String RECEIVE_BOOT_COMPLETED = Manifest.permission.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSIONe
     private FirebaseAuth mAuth;//Used for firebase authentication
 
     private DatabaseReference usersRef;
@@ -151,21 +152,19 @@ public class ProfileFragment extends Fragment {
 
     }
 
-    private void enableOrDisableNotifications(boolean isChecked) {
-        if (isChecked) {
-            // Enable notifications
-            // Implement notification setup logic here
 
-            // Example: Request permissions
-            requestPermissions(new String[]{
-                    Manifest.permission.RECEIVE_BOOT_COMPLETED,
-                    Manifest.permission.VIBRATE
-            }, PERMISSION_REQUEST_CODE);
-        } else {
-            // Disable notifications
-            // Implement logic to disable notifications
+    private void enableOrDisableNotifications(boolean isChecked) {
+        if (isChecked && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ActivityCompat.checkSelfPermission(getActivity(),Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+
+                requestPermissions(new String[] {Manifest.permission.POST_NOTIFICATIONS}, 1);
+
+            }
+            else {
+                // repeat the permission or open app details
+            }
         }
-    }
+        }
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == PERMISSION_REQUEST_CODE) {
@@ -178,6 +177,4 @@ public class ProfileFragment extends Fragment {
             }
         }
     }
-
-
 }
