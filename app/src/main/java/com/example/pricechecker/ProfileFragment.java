@@ -2,17 +2,21 @@ package com.example.pricechecker;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.viewmodel.CreationExtras;
@@ -33,6 +37,9 @@ public class ProfileFragment extends Fragment {
     Switch toggle_notif;
     TextView username_profile, email_profile;
 
+    private static final int PERMISSION_REQUEST_CODE = 100;
+
+    private static final String RECEIVE_BOOT_COMPLETED = Manifest.permission.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSIONe
     private FirebaseAuth mAuth;//Used for firebase authentication
 
     private DatabaseReference usersRef;
@@ -56,6 +63,20 @@ public class ProfileFragment extends Fragment {
         notif_set = view.findViewById(R.id.notif_btn);
         toggle_notif = view.findViewById(R.id.switch1);
         feedback = view.findViewById(R.id.fback);
+
+        toggle_notif.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // Call enableOrDisableNotifications() with the current state of the Switch
+                enableOrDisableNotifications(isChecked);
+            }
+        });
+
+        // Initialize notifications according to the initial state of the Switch
+        enableOrDisableNotifications(toggle_notif.isChecked());
+
+
+
 
         acc_info.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,8 +145,39 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+
+
         return view;
 
     }
+
+    private void enableOrDisableNotifications(boolean isChecked) {
+        if (isChecked) {
+            // Enable notifications
+            // Implement notification setup logic here
+
+            // Example: Request permissions
+            requestPermissions(new String[]{
+                    Manifest.permission.RECEIVE_BOOT_COMPLETED,
+                    Manifest.permission.VIBRATE
+            }, PERMISSION_REQUEST_CODE);
+        } else {
+            // Disable notifications
+            // Implement logic to disable notifications
+        }
+    }
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == PERMISSION_REQUEST_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission granted, proceed with app logic
+                // ...
+            } else {
+                // Permission denied, handle accordingly
+                // ...
+            }
+        }
+    }
+
 
 }
