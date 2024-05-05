@@ -2,14 +2,8 @@ package com.example.pricechecker;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.widget.TextView;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class Pages extends AppCompatActivity {
 
@@ -19,26 +13,43 @@ public class Pages extends AppCompatActivity {
         setContentView(R.layout.activity_pages);
 
         int pageId = getIntent().getIntExtra("id", 0);
-
-        TextView textPageId = findViewById(R.id.textPageId);
-        textPageId.setText("PAGE : " + pageId);
         // Set background dynamically based on page ID
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) 
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"})
         ConstraintLayout constraintLayout = findViewById(R.id.item_details);
         constraintLayout.setBackgroundResource(getBackgroundResource(pageId));
-        
-        
-        
+
+
     }
 
     private int getBackgroundResource(int pageId) {
         switch (pageId) {
+            case 0:
+                return R.drawable.bellpepper;
             case 1:
                 return R.drawable.item_details_ginger;
             case 2:
-                return R.drawable.item_details_ginger;
+                return R.drawable.lettuce;
+            case 3:
+                return R.drawable.squash;
+            case 4:
+                return R.drawable.carrots;
+            case 5:
+                return R.drawable.brocolli;
+            case 6:
+                return R.drawable.beef;
+            case 7:
+                return R.drawable.pork;
+            case 8:
+                return R.drawable.lamb;
+            case 9:
+                return R.drawable.rabbit;
+            case 10:
+                return R.drawable.drumsticks;
+            case 11:
+                return R.drawable.wings;
             // Add more cases for additional pages if needed
             default:
-                return // Default background if no matching page ID
+                return R.drawable.beef;// Default background if no matching page ID
         }
+    }
 }

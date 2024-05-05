@@ -25,15 +25,17 @@
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:background="#F3F5F7"
+            android:drawableRight="@mipmap/arrow_item"
             android:fontFamily="@font/dm_sans"
-            android:gravity="left"
-            android:padding="5dp"
+            android:gravity="center|left"
             android:paddingStart="15dp"
+            android:paddingEnd="-15dp"
             android:text="TextView"
             android:textSize="15dp"
             android:textStyle="bold" />
+
 
         <TextView
             android:id="@+id/price"

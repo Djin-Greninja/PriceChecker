@@ -32,18 +32,18 @@ public class CardView extends AppCompatActivity {
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
 
         recyclerView_list = new ArrayList<RecyclerView_List>();
-        recyclerView_list.add(new RecyclerView_List(R.drawable.bellpepper, "Red Bell Pepper", "₱150/kg"));
-        recyclerView_list.add(new RecyclerView_List(R.drawable.ginger, "Ginger", "₱120/kg"));
-        recyclerView_list.add(new RecyclerView_List(R.drawable.lettuce, "Fresh Lettuce", "₱110/kg"));
-        recyclerView_list.add(new RecyclerView_List(R.drawable.squash, "Butternut Squash", "₱135/kg"));
-        recyclerView_list.add(new RecyclerView_List(R.drawable.carrots, "Organic Carrots", "₱110/kg"));
-        recyclerView_list.add(new RecyclerView_List(R.drawable.brocolli, "Fresh Broccoli", "₱120/kg"));
-        recyclerView_list.add(new RecyclerView_List(R.drawable.beef, "Beef Meat", "₱320/kg"));
-        recyclerView_list.add(new RecyclerView_List(R.drawable.pork, "Pork Meat", "₱280/kg"));
-        recyclerView_list.add(new RecyclerView_List(R.drawable.lamb, "Lamb Meat", "₱320/kg"));
-        recyclerView_list.add(new RecyclerView_List(R.drawable.rabbit, "Rabbit Meat", "₱200/kg"));
-        recyclerView_list.add(new RecyclerView_List(R.drawable.drumsticks, "Drumsticks", "₱210/kg"));
-        recyclerView_list.add(new RecyclerView_List(R.drawable.wings, "Chicken Wings", "₱200/kg"));
+        recyclerView_list.add(new RecyclerView_List(R.drawable.bellpepper, "Red Bell Pepper", "₱150/kg",0));
+        recyclerView_list.add(new RecyclerView_List(R.drawable.ginger, "Ginger", "₱120/kg",1));
+        recyclerView_list.add(new RecyclerView_List(R.drawable.lettuce, "Fresh Lettuce", "₱110/kg",2));
+        recyclerView_list.add(new RecyclerView_List(R.drawable.squash, "Butternut Squash", "₱135/kg",3));
+        recyclerView_list.add(new RecyclerView_List(R.drawable.carrots, "Organic Carrots", "₱110/kg",4));
+        recyclerView_list.add(new RecyclerView_List(R.drawable.brocolli, "Fresh Broccoli", "₱120/kg",5));
+        recyclerView_list.add(new RecyclerView_List(R.drawable.beef, "Beef Meat", "₱320/kg",6));
+        recyclerView_list.add(new RecyclerView_List(R.drawable.pork, "Pork Meat", "₱280/kg",7));
+        recyclerView_list.add(new RecyclerView_List(R.drawable.lamb, "Lamb Meat", "₱320/kg",8));
+        recyclerView_list.add(new RecyclerView_List(R.drawable.rabbit, "Rabbit Meat", "₱200/kg",9));
+        recyclerView_list.add(new RecyclerView_List(R.drawable.drumsticks, "Drumsticks", "₱210/kg",10));
+        recyclerView_list.add(new RecyclerView_List(R.drawable.wings, "Chicken Wings", "₱200/kg",11));
 
         RecyclerView_Adapter recyclerView_adapter = new RecyclerView_Adapter(recyclerView_list, this);
         recyclerView.setAdapter(recyclerView_adapter);

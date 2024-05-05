@@ -4,11 +4,13 @@ public class RecyclerView_List {
     private Integer image;
     private String text;
     private String price;
+    private Integer pageId;
 
-    public RecyclerView_List(Integer image, String text, String price) {
+    public RecyclerView_List(Integer image, String text, String price, Integer pageId) {
         this.image = image;
         this.text = text;
         this.price = price;
+        this.pageId = pageId;
     }
 
     public Integer getImage() {
