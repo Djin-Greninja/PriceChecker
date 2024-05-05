@@ -24,7 +24,6 @@ public class PrivacyPolicy extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_privacy_policy);
-
         backbtn_pp = findViewById(R.id.back_btn_privacy_policy);
         scrollView = findViewById(R.id.scrollview_pp);
         policy = findViewById(R.id.pp_policy);
