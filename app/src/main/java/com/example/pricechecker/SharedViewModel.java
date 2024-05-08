@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel;
 import java.util.ArrayList;
 import java.util.List;
 
+// SharedViewModel.java
 public class SharedViewModel extends ViewModel {
     private MutableLiveData<List<CartItem>> cartItems = new MutableLiveData<>(new ArrayList<>());
 
@@ -13,9 +14,18 @@ public class SharedViewModel extends ViewModel {
         return cartItems;
     }
 
-    public void addToCart(CartItem item) {
+    public void addToCart(int imageResId, String name, double price) {
         List<CartItem> currentCartItems = cartItems.getValue();
-        currentCartItems.add(item);
+        if (currentCartItems == null) {
+            currentCartItems = new ArrayList<>();
+        }
+        CartItem newItem = new CartItem(imageResId, name, price);
+        currentCartItems.add(newItem);
         cartItems.postValue(currentCartItems);
+    }
+
+    public void addToCart(List<CartItem> cartItems) {
+
+
     }
 }

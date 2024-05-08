@@ -1,6 +1,5 @@
 package com.example.pricechecker;
 
-import static androidx.core.content.ContentProviderCompat.requireContext;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -25,12 +24,9 @@ public class Pages extends AppCompatActivity {
     private SharedViewModel viewModel;
     ImageButton addToCart, priceCheck;
     private CartAdapter adapter;
-
-
-    @Override
+    private List<CartItem> cartItems;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        List<CartItem> cartItems = new ArrayList<>();
         setContentView(R.layout.activity_pages);
         viewModel = new ViewModelProvider(this).get(SharedViewModel.class);
         int pageId = getIntent().getIntExtra("id", 0);
@@ -41,78 +37,63 @@ public class Pages extends AppCompatActivity {
         TextView textView = findViewById(R.id.price);
         addToCart = findViewById(R.id.addtocart);
         priceCheck = findViewById(R.id.save_money);
-        adapter = new CartAdapter(this, cartItems);
-
-        // Assuming you have access to the ViewModel instance in your fragment
-
+        adapter = new CartAdapter( this,new ArrayList<>());
 
         addToCart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                // Determine the page's unique identifier (e.g., page number)
-
-                // Create a CartItem object based on the page's unique identifier
-                CartItem item;
-                switch (pageId) {
-                    case 0:
-                        item = new CartItem(R.drawable.bellpepper, "Red Bell Pepper", 150.00);
-                        break;
-                    case 1:
-                        item = new CartItem(R.drawable.ginger, "Ginger", 120.00);
-                        break;
-                    case 2:
-                        item = new CartItem(R.drawable.lettuce, "Fresh Lettuce", 110.00);
-                        break;
-                    case 3:
-                        item = new CartItem(R.drawable.squash, "Butternut Squash", 135.00);
-                        break;
-                    case 4:
-                        item = new CartItem(R.drawable.carrots, "Organic Carrots", 110.00);
-                        break;
-                    case 5:
-                        item = new CartItem(R.drawable.brocolli, "Fresh Brocolli", 120.00);
-                        break;
-                    case 6:
-                        item = new CartItem(R.drawable.beef, "Beef Meat", 320.00);
-                        break;
-                    case 7:
-                        item = new CartItem(R.drawable.pork, "Pork Meat", 280.00);
-                        break;
-                    case 8:
-                        item = new CartItem(R.drawable.lamb, "Lamb Meat", 320.00);
-                        break;
-                    case 9:
-                        item = new CartItem(R.drawable.rabbit, "Rabbit Meat", 200.00);
-                        break;
-                    case 10:
-                        item = new CartItem(R.drawable.drumsticks, "Drumsticks", 210.00);
-                        break;
-                    case 11:
-                        item = new CartItem(R.drawable.wings, "Chicken Wings", 200.00);
-                        break;
-                    // Add more cases for other pages as needed
-                    default:
-                        // Default case if the page identifier doesn't match any known cases
-                        item = null; // or handle default behavior
-                        break;
+                @Override
+                public void onClick(View view) {
+                    // Determine the page's unique identifier (e.g., page number)
+                    List<CartItem> cartItems = new ArrayList<>();
+                    switch (pageId) {
+                        case 0:
+                            cartItems.add(new CartItem(R.drawable.bellpepper, "Red Bell Pepper", 150.00));
+                            break;
+                        case 1:
+                            cartItems.add(new CartItem(R.drawable.ginger, "Ginger", 120.00));
+                            break;
+                        case 2:
+                            cartItems.add(new CartItem(R.drawable.lettuce, "Fresh Lettuce", 110.00));
+                            break;
+                        case 3:
+                            cartItems.add(new CartItem(R.drawable.squash, "Butternut Squash", 135.00));
+                            break;
+                        case 4:
+                            cartItems.add(new CartItem(R.drawable.carrots, "Organic Carrots", 110.00));
+                            break;
+                        case 5:
+                            cartItems.add(new CartItem(R.drawable.brocolli, "Fresh Broccoli", 120.00));
+                            break;
+                        case 6:
+                            cartItems.add(new CartItem(R.drawable.beef, "Beef Meat", 320.00));
+                            break;
+                        case 7:
+                            cartItems.add(new CartItem(R.drawable.pork, "Pork Meat", 280.00));
+                            break;
+                        case 8:
+                            cartItems.add(new CartItem(R.drawable.lamb, "Lamb Meat", 320.00));
+                            break;
+                        case 9:
+                            cartItems.add(new CartItem(R.drawable.rabbit, "Rabbit Meat", 200.00));
+                            break;
+                        case 10:
+                            cartItems.add(new CartItem(R.drawable.drumsticks, "Drumsticks", 210.00));
+                            break;
+                        case 11:
+                            cartItems.add(new CartItem(R.drawable.wings, "Chicken Wings", 200.00));
+                            break;
+                        default:
+                            break;
+                    }
+                    if (!cartItems.isEmpty()) {
+                        viewModel.addToCart(cartItems);
+                        Toast.makeText(Pages.this, "Added to Cart", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(Pages.this, "Failed to add to Cart", Toast.LENGTH_SHORT).show();
+                    }
                 }
-                // If item is not null, add it to the cart
-                if (item != null) {
-                    cartItems.add(item); // Add item to cartItems list
-                    viewModel.addToCart(item);
-                    Toast.makeText(Pages.this, "Added to Cart", Toast.LENGTH_SHORT).show();
-                    adapter.updateCartItems(cartItems);
-                } else {
-                    // Handle the case where item is null (optional)
-                    Toast.makeText(Pages.this, "Failed to add to Cart", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+            });
 
-        // Determine the current page or case
 
-        // Update TextView content based on current page or case
         switch (pageId) {
             case 0:
                 textView.setText("150/kg");
@@ -150,7 +131,6 @@ public class Pages extends AppCompatActivity {
             case 11:
                 textView.setText("₱200/kg");
                 break;
-            // Add more cases as needed
             default:
                 textView.setText("Default Content");
                 break;
@@ -183,13 +163,7 @@ public class Pages extends AppCompatActivity {
                 return R.drawable.drumsticks_info;
             case 11:
                 return R.drawable.wings_info;
-            // Add more cases for additional pages if needed
             default:
-                return R.drawable.notfound;// Default background if no matching page ID
+                return R.drawable.notfound;
         }
-    }
-
-
-
-
-}
+    }}

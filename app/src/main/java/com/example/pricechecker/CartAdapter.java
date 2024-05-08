@@ -1,31 +1,34 @@
 package com.example.pricechecker;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder> {
-    private List<CartItem> cartItems = new ArrayList<>();
+    private List<CartItem> cartItems;
     private Context context;
 
     public CartAdapter(Context context, List<CartItem> cartItems) {
         this.context = context;
-        this.cartItems = cartItems!= null? cartItems : new ArrayList<>();
+        this.cartItems = cartItems;
     }
 
     @NonNull
     @Override
     public CartViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.cart_item_layout, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cart_item_layout, parent, false);
         return new CartViewHolder(view);
     }
 
@@ -57,6 +60,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 
     public void updateCartItems(List<CartItem> cartItems) {
         this.cartItems = cartItems;
-        notifyDataSetChanged(); // Notify the adapter about the changes
+        notifyDataSetChanged();
     }
 }
