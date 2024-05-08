@@ -24,7 +24,7 @@ public class Pages extends AppCompatActivity {
     private int getBackgroundResource(int pageId) {
         switch (pageId) {
             case 0:
-                return R.drawable.bellpepper;
+                return R.drawable.bellpepper_nfo;
             case 1:
                 return R.drawable.item_details_ginger;
             case 2:
