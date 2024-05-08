@@ -4,59 +4,49 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.widget.ImageButton;
+
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ListFragment extends Fragment {
     private RecyclerView recyclerView;
-    private SharedViewModel viewModel;
-    private List<CartItem> cartItems;
+    private RecyclerView_Adapter recyclerViewAdapter;
 
-    private CartAdapter cartAdapter;
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        viewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
-    }
-
+    ImageButton bckbtn_items;
+    ArrayList<RecyclerView_List> recyclerView_list;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_list, container, false);
-        recyclerView = view.findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
-        cartAdapter = new CartAdapter(getContext(), new ArrayList<>());
-        recyclerView.setAdapter(cartAdapter);
+        View view = inflater.inflate(R.layout.activity_cardview, container, false);
 
 
-        return view;
+            // Find RecyclerView and setup layout manager
+            recyclerView = view.findViewById(R.id.recyclerView_card);
+            recyclerView.setHasFixedSize(true);
+            recyclerView.setLayoutManager(new GridLayoutManager(requireContext(), 2));
+
+            // Initialize and populate the list of items
+            ArrayList<RecyclerView_List> recyclerViewList = new ArrayList<>();
+            recyclerViewList.add(new RecyclerView_List(R.drawable.bellpepper, "Red Bell Pepper", "₱150/kg", 0));
+            recyclerViewList.add(new RecyclerView_List(R.drawable.ginger, "Ginger", "₱120/kg", 1));
+            recyclerViewList.add(new RecyclerView_List(R.drawable.lettuce, "Fresh Lettuce", "₱110/kg", 2));
+            recyclerViewList.add(new RecyclerView_List(R.drawable.squash, "Butternut Squash", "₱135/kg", 3));
+            recyclerViewList.add(new RecyclerView_List(R.drawable.carrots, "Organic Carrots", "₱110/kg", 4));
+            recyclerViewList.add(new RecyclerView_List(R.drawable.brocolli, "Fresh Broccoli", "₱120/kg", 5));
+            recyclerViewList.add(new RecyclerView_List(R.drawable.beef, "Beef Meat", "₱320/kg", 6));
+            recyclerViewList.add(new RecyclerView_List(R.drawable.pork, "Pork Meat", "₱280/kg", 7));
+            recyclerViewList.add(new RecyclerView_List(R.drawable.lamb, "Lamb Meat", "₱320/kg", 8));
+            recyclerViewList.add(new RecyclerView_List(R.drawable.rabbit, "Rabbit Meat", "₱200/kg", 9));
+            recyclerViewList.add(new RecyclerView_List(R.drawable.drumsticks, "Drumsticks", "₱210/kg", 10));
+            recyclerViewList.add(new RecyclerView_List(R.drawable.wings, "Chicken Wings", "₱200/kg", 11));
+
+            // Set up RecyclerView adapter
+            RecyclerView_Adapter recyclerViewAdapter = new RecyclerView_Adapter(recyclerViewList, requireContext());
+            recyclerView.setAdapter(recyclerViewAdapter);
+
+            return view;
+        }
     }
-
-    @Override
-    public void onViewCreated(@NonNull View rootView, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(rootView, savedInstanceState);
-
-            viewModel.getCartItems().observe(getViewLifecycleOwner(), new Observer<List<CartItem>>() {
-                @Override
-                public void onChanged(List<CartItem> cartItems) {
-                    // Update the adapter with new cart items
-                    cartAdapter.updateCartItems(cartItems);
-                }
-            });
-    }
-
-    private void updateList(List<CartItem> cartItems) {
-    }
-}

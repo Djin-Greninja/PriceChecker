@@ -39,6 +39,8 @@ public class Pages extends AppCompatActivity {
         priceCheck = findViewById(R.id.save_money);
         adapter = new CartAdapter( this,new ArrayList<>());
 
+
+
         addToCart.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -166,4 +168,16 @@ public class Pages extends AppCompatActivity {
             default:
                 return R.drawable.notfound;
         }
-    }}
+    }
+    public void onPageClicked(View view){
+        int pageId = getIntent().getIntExtra("id", 0);
+
+        switch (pageId) {
+            case 0:
+                CartItem item = new CartItem(R.drawable.bellpepper, "Description of Page 1", 10.0);
+                viewModel.addToCart((List<CartItem>) item);
+                break;
+
+    }
+    }
+}
