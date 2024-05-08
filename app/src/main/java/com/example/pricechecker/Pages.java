@@ -12,17 +12,25 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.airbnb.lottie.LottieDrawable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Pages extends AppCompatActivity {
     private SharedViewModel viewModel;
     ImageButton addToCart, priceCheck;
+    private CartAdapter adapter;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        List<CartItem> cartItems = new ArrayList<>();
         setContentView(R.layout.activity_pages);
         viewModel = new ViewModelProvider(this).get(SharedViewModel.class);
         int pageId = getIntent().getIntExtra("id", 0);
@@ -33,8 +41,7 @@ public class Pages extends AppCompatActivity {
         TextView textView = findViewById(R.id.price);
         addToCart = findViewById(R.id.addtocart);
         priceCheck = findViewById(R.id.save_money);
-
-
+        adapter = new CartAdapter(this, cartItems);
 
         // Assuming you have access to the ViewModel instance in your fragment
 
@@ -42,7 +49,9 @@ public class Pages extends AppCompatActivity {
         addToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 // Determine the page's unique identifier (e.g., page number)
+
                 // Create a CartItem object based on the page's unique identifier
                 CartItem item;
                 switch (pageId) {
@@ -90,13 +99,14 @@ public class Pages extends AppCompatActivity {
                 }
                 // If item is not null, add it to the cart
                 if (item != null) {
+                    cartItems.add(item); // Add item to cartItems list
                     viewModel.addToCart(item);
                     Toast.makeText(Pages.this, "Added to Cart", Toast.LENGTH_SHORT).show();
+                    adapter.updateCartItems(cartItems);
                 } else {
                     // Handle the case where item is null (optional)
                     Toast.makeText(Pages.this, "Failed to add to Cart", Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
 

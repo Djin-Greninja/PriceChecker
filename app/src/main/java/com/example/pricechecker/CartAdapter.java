@@ -1,4 +1,5 @@
 package com.example.pricechecker;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,15 +14,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder> {
-    private List<CartItem> cartItems;
+    private List<CartItem> cartItems = new ArrayList<>();
     private Context context;
 
-    public CartAdapter() {
-        cartItems = new ArrayList<>();
-    }
     public CartAdapter(Context context, List<CartItem> cartItems) {
         this.context = context;
-        this.cartItems = cartItems;
+        this.cartItems = cartItems!= null? cartItems : new ArrayList<>();
     }
 
     @NonNull
@@ -55,5 +53,10 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             itemNameTextView = itemView.findViewById(R.id.item_name_text_view);
             itemPriceTextView = itemView.findViewById(R.id.item_price_text_view);
         }
+    }
+
+    public void updateCartItems(List<CartItem> cartItems) {
+        this.cartItems = cartItems;
+        notifyDataSetChanged(); // Notify the adapter about the changes
     }
 }
