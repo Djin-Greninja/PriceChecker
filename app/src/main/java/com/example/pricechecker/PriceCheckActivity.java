@@ -21,6 +21,7 @@ public class PriceCheckActivity extends AppCompatActivity {
         // Manually assign drawables to each index
         int selectedIndex = getIntent().getIntExtra("selected_index", 0);
 
+
         // Manually assign drawables to each index
         int[] backgroundResources = {
                 R.drawable.pc_bellpepper,
