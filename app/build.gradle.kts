@@ -47,6 +47,7 @@ dependencies {
     implementation("androidx.activity:activity:1.9.0")
     implementation ("com.google.android.material:material:1.11.0")
     implementation ("com.airbnb.android:lottie:3.8.0")
+    implementation ("com.airbnb.android:lottie:6.4.0")
     implementation(platform("com.google.firebase:firebase-bom:32.8.1"))
     implementation("com.google.firebase:firebase-database:20.3.1")
     implementation("com.google.firebase:firebase-auth:22.3.1")

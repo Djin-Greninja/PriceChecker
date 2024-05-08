@@ -50,18 +50,17 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottie_animation_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="85dp"
+        android:layout_height="84dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.84"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addtocart"
-        app:layout_constraintVertical_bias="0.859"
+        app:layout_constraintVertical_bias="0.904"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/save_money"
-        tools:ignore="MissingClass" />
+        app:lottie_rawRes="@raw/money_save"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -70,6 +69,10 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="293dp" />
+        app:layout_constraintEnd_toEndOf="@+id/lottie_animation_view"
+        app:layout_constraintHorizontal_bias="0.832"
+        app:layout_constraintStart_toStartOf="@+id/lottie_animation_view"
+        app:layout_constraintTop_toBottomOf="@+id/addtocart"
+        app:layout_constraintVertical_bias="0.983" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

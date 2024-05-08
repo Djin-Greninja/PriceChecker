@@ -18,6 +18,7 @@ dependencyResolutionManagement {
             credentials.password = providers.gradleProperty("MAPBOX_DOWNLOADS_TOKEN").get()
             authentication.create<BasicAuthentication>("basic")
         }
+        maven { url = uri("https://oss.sonatype.org/content/repositories/snapshots/" ) }
     }
 }
 

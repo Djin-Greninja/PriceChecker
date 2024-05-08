@@ -5,6 +5,9 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.airbnb.lottie.LottieAnimationView;
+import com.airbnb.lottie.LottieDrawable;
+
 public class Pages extends AppCompatActivity {
 
     @Override
@@ -17,6 +20,10 @@ public class Pages extends AppCompatActivity {
         @SuppressLint({"MissingInflatedId", "LocalSuppress"})
         ConstraintLayout constraintLayout = findViewById(R.id.item_details);
         constraintLayout.setBackgroundResource(getBackgroundResource(pageId));
+        LottieAnimationView animationView = findViewById(R.id.lottie_animation_view);
+        animationView.setAnimation(R.raw.money_save);
+        animationView.setRepeatCount(LottieDrawable.INFINITE);
+        animationView.playAnimation();
 
 
     }
