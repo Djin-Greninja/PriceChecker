@@ -62,9 +62,9 @@ public class HomeFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
 
         recyclerView_list = new ArrayList<>();
-        recyclerView_list.add(new RecyclerView_List(R.drawable.wings, "Chicken Wings", "₱200/kg",11));
+        recyclerView_list.add(new RecyclerView_List(R.drawable.bellpepper, "Bell Pepper", "₱150/kg",11));
         recyclerView_list.add(new RecyclerView_List(R.drawable.ginger, "Ginger", "₱120/kg",1));
-        recyclerView_list.add(new RecyclerView_List(R.drawable.pork, "Pork Meat", "₱280/kg",7));
+        recyclerView_list.add(new RecyclerView_List(R.drawable.lettuce, "Fresh Lettuce", "₱110/kg",7));
 
         RecyclerView_Adapter recyclerView_adapter = new RecyclerView_Adapter(recyclerView_list, getActivity());
         recyclerView.setAdapter(recyclerView_adapter);

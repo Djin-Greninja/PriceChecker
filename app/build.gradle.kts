@@ -40,13 +40,13 @@ android {
 
 dependencies {
     implementation("com.mapbox.maps:android:11.3.1")
-
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("com.google.android.gms:play-services-maps:18.2.0")
     implementation("androidx.activity:activity:1.9.0")
     implementation ("com.google.android.material:material:1.11.0")
+    implementation ("com.airbnb.android:lottie:3.8.0")
     implementation(platform("com.google.firebase:firebase-bom:32.8.1"))
     implementation("com.google.firebase:firebase-database:20.3.1")
     implementation("com.google.firebase:firebase-auth:22.3.1")
