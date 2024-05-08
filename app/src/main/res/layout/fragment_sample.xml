@@ -8,68 +8,69 @@
     tools:context=".SampleFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/bg_home">
-    <ImageView
-        android:id="@+id/pofile_logo"
-        android:layout_width="51dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="28dp"
-        android:background="@drawable/logo"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.071"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_home">
 
-    <TextView
-        android:id="@+id/username_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="5dp"
-        android:fontFamily="@font/dm_sans"
-        android:text="Username"
-        android:textColor="#2D2E30"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/pofile_logo"
-        app:layout_constraintEnd_toEndOf="@+id/greetins"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/pofile_logo"
-        app:layout_constraintTop_toBottomOf="@+id/greetins"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="DuplicateIds,NotSibling" />
+        <ImageView
+            android:id="@+id/pofile_logo"
+            android:layout_width="51dp"
+            android:layout_height="51dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/logo"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.071"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/greetins"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="3dp"
-        android:fontFamily="@font/dm_sans"
-        android:text="Good Morning!"
-        android:textColor="#979899"
-        app:layout_constraintBottom_toBottomOf="@+id/pofile_logo"
-        app:layout_constraintStart_toEndOf="@+id/pofile_logo"
-        app:layout_constraintTop_toTopOf="@+id/pofile_logo"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="DuplicateIds" />
+        <TextView
+            android:id="@+id/username_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/dm_sans"
+            android:text="Username"
+            android:textColor="#2D2E30"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/pofile_logo"
+            app:layout_constraintEnd_toEndOf="@+id/greetins"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/pofile_logo"
+            app:layout_constraintTop_toBottomOf="@+id/greetins"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="DuplicateIds,NotSibling" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="140dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="60dp"
-        android:backgroundTint="#FFFFFF"
-        android:theme="@style/AppCompat"
-        app:layout_constraintBottom_toBottomOf="@+id/pofile_logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/greetins"
-        app:layout_constraintTop_toTopOf="@+id/pofile_logo"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="SpeakableTextPresentCheck" />
+        <TextView
+            android:id="@+id/greetins"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="3dp"
+            android:fontFamily="@font/dm_sans"
+            android:text="Good Morning!"
+            android:textColor="#979899"
+            app:layout_constraintBottom_toBottomOf="@+id/pofile_logo"
+            app:layout_constraintStart_toEndOf="@+id/pofile_logo"
+            app:layout_constraintTop_toTopOf="@+id/pofile_logo"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="DuplicateIds" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="140dp"
+            android:layout_height="49dp"
+            android:layout_marginStart="60dp"
+            android:backgroundTint="#FFFFFF"
+            android:theme="@style/AppCompat"
+            app:layout_constraintBottom_toBottomOf="@+id/pofile_logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/greetins"
+            app:layout_constraintTop_toTopOf="@+id/pofile_logo"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <ImageView
             android:layout_width="56dp"
@@ -99,15 +100,15 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <SearchView
-        android:id="@+id/searchBar"
-        android:layout_width="360dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="100dp"
-        android:background="@drawable/search_bar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            android:id="@+id/searchBar"
+            android:layout_width="360dp"
+            android:layout_height="47dp"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/search_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewPager1"
@@ -181,90 +182,90 @@
             app:layout_constraintStart_toEndOf="@+id/see_all2"
             app:layout_constraintTop_toBottomOf="@+id/viewPager1" />
 
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/searchBar"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.517"
-        app:srcCompat="@drawable/c_meat" />
+        <ImageView
+            android:id="@+id/meat_cat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/searchBar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.517"
+            app:srcCompat="@drawable/c_meat" />
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/searchBar"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.516"
-        app:srcCompat="@drawable/c_fruit" />
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/searchBar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.516"
+            app:srcCompat="@drawable/c_fruit" />
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView7"
-        app:layout_constraintHorizontal_bias="0.204"
-        app:layout_constraintStart_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.517"
-        app:srcCompat="@drawable/c_vegie" />
+        <ImageView
+            android:id="@+id/veggie_cat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imageView78"
+            app:layout_constraintHorizontal_bias="0.204"
+            app:layout_constraintStart_toEndOf="@+id/imageView5"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.517"
+            app:srcCompat="@drawable/c_vegie" />
 
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView8"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.517"
-        app:srcCompat="@drawable/c_dairy" />
+        <ImageView
+            android:id="@+id/imageView78"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/meat_cat"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.517"
+            app:srcCompat="@drawable/c_dairy" />
 
-    <TextView
-        android:id="@+id/Fruits"
-        android:paddingTop="7dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/dm_sans"
-        android:text="Fruits"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView5"
-        app:layout_constraintStart_toStartOf="@+id/imageView5"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+        <TextView
+            android:id="@+id/Fruits"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/dm_sans"
+            android:paddingTop="7dp"
+            android:text="Fruits"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@+id/imageView5"
+            app:layout_constraintStart_toStartOf="@+id/imageView5"
+            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
-    <TextView
-        android:id="@+id/Vegetables"
-        android:paddingTop="7dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Vegetables"
-        app:layout_constraintEnd_toEndOf="@+id/imageView6"
-        app:layout_constraintStart_toStartOf="@+id/imageView6"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+        <TextView
+            android:id="@+id/Vegetables"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="7dp"
+            android:text="Vegetables"
+            app:layout_constraintEnd_toStartOf="@+id/Dairy"
+            app:layout_constraintStart_toEndOf="@+id/Fruits"
+            app:layout_constraintTop_toBottomOf="@+id/imageView78" />
 
-    <TextView
-        android:id="@+id/Dairy"
-        android:paddingTop="7dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Dairy"
-        app:layout_constraintEnd_toEndOf="@+id/imageView7"
-        app:layout_constraintStart_toStartOf="@+id/imageView7"
-        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+        <TextView
+            android:id="@+id/Dairy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="7dp"
+            android:text="Dairy"
+            app:layout_constraintEnd_toEndOf="@+id/imageView78"
+            app:layout_constraintStart_toStartOf="@+id/imageView78"
+            app:layout_constraintTop_toBottomOf="@+id/imageView78" />
 
-    <TextView
-        android:id="@+id/Meat"
-        android:paddingTop="7dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Meat"
-        app:layout_constraintEnd_toEndOf="@+id/imageView8"
-        app:layout_constraintStart_toStartOf="@+id/imageView8"
-        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+        <TextView
+            android:id="@+id/Meat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="7dp"
+            android:text="Meat"
+            app:layout_constraintEnd_toEndOf="@+id/meat_cat"
+            app:layout_constraintStart_toStartOf="@+id/meat_cat"
+            app:layout_constraintTop_toBottomOf="@+id/meat_cat" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView_home"

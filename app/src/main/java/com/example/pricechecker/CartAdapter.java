@@ -39,14 +39,46 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         holder.nameTextView.setText(cartItem.getName());
         holder.priceTextView.setText(String.format("%.2f", cartItem.getPrice()));
         holder.imageView.setImageResource(cartItem.getImage());
+        holder.constraintLayout.setBackgroundResource(getBackgroundResource(cartItem.getPageId()));
     }
 
     @Override
     public int getItemCount() {
         return cartItems.size();
     }
+    private int getBackgroundResource(int pageId) {
+        switch (pageId) {
+            case 0:
+                return R.drawable.bellpepper_info;
+            case 1:
+                return R.drawable.ginger_info;
+            case 2:
+                return R.drawable.lettuce_info;
+            case 3:
+                return R.drawable.squash_info;
+            case 4:
+                return R.drawable.carrots_info;
+            case 5:
+                return R.drawable.broccoli_info;
+            case 6:
+                return R.drawable.beef_info;
+            case 7:
+                return R.drawable.pork_info;
+            case 8:
+                return R.drawable.lamb_info;
+            case 9:
+                return R.drawable.rabbit_info;
+            case 10:
+                return R.drawable.drumsticks_info;
+            case 11:
+                return R.drawable.wings_info;
+            default:
+                return R.drawable.notfound;
+        }
+    }
 
     class CartViewHolder extends RecyclerView.ViewHolder {
+        public View constraintLayout;
         TextView nameTextView;
         TextView priceTextView;
         ImageView imageView;

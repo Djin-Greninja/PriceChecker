@@ -6,6 +6,8 @@ public class RecyclerView_List {
     private String price;
     private Integer pageId;
 
+
+
     public RecyclerView_List(Integer image, String text, String price, Integer pageId) {
         this.image = image;
         this.text = text;
@@ -35,5 +37,12 @@ public class RecyclerView_List {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+    public RecyclerView_List(Integer pageId) {
+        this.pageId = pageId;
+    }
+
+    public Integer getPageId() {
+        return pageId;
     }
 }

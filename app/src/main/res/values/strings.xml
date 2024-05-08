@@ -10,6 +10,6 @@
     <!-- TODO: Mapbox Installation -->
     <string name="mapbox_access_token">sk.eyJ1IjoiYWxseXphLTEyMyIsImEiOiJjbHZpNjNtNG0xNWJwMnFwNTJuZWg4YzBoIn0.4uZbDB4KD3y0i_cP42E9vA</string>
 
-    <string formatted="true" name="terms_conditions"></string>
+    <string name="terms_conditions" formatted="true"></string>
 
 </resources>

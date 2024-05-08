@@ -4,6 +4,7 @@ public class CartItem {
     private int image;
     private String name;
     private double price;
+    private int pageId;
 
     public CartItem(int image, String name, double price) {
         this.image = image;
@@ -21,6 +22,14 @@ public class CartItem {
 
     public double getPrice() {
         return price;
+    }
+
+    public int getPageId() {
+        return pageId;
+    }
+
+    public void setPageId(int pageId) {
+        this.pageId = pageId;
     }
 }
 
